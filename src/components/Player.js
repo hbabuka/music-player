@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,8 @@ const Player = ({
   audioRef,
   songInfo,
   setSongInfo,
+  songs,
+  setCurrentSong,
 }) => {
   const handlePlaySong = () => {
     if (isPlaying) {
@@ -33,6 +35,24 @@ const Player = ({
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
+  const handleSkipTrack = (direction) => {
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    if (direction === "skip-forward") {
+      setCurrentSong(
+        songs[(currentIndex + 1) % songs.length]
+        // songs[currentIndex + 1 === songs.length ? 0 : currentIndex + 1]
+      );
+    }
+    if (direction === "skip-back") {
+      if (currentIndex === 0) {
+        setCurrentSong(songs[songs.length - 1]);
+        return;
+      }
+      setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+      // songs[currentIndex === 0 ? songs.length - 1 : currentIndex - 1]
+    }
+  };
+
   return (
     <div className="player-container">
       <div className="time-control">
@@ -40,7 +60,7 @@ const Player = ({
         <input
           type="range"
           min="0"
-          max={songInfo.duration}
+          max={songInfo.duration || 0}
           value={songInfo.currentTime}
           onChange={handleDragInput}
         />
@@ -51,6 +71,7 @@ const Player = ({
           className="skip-back-icon"
           icon={faAngleLeft}
           size="2x"
+          onClick={() => handleSkipTrack("skip-back")}
         />
         <FontAwesomeIcon
           className="play-icon"
@@ -62,6 +83,7 @@ const Player = ({
           className="skip-forward-icon"
           icon={faAngleRight}
           size="2x"
+          onClick={() => handleSkipTrack("skip-forward")}
         />
       </div>
     </div>
