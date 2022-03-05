@@ -1,4 +1,3 @@
-import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function musicList() {
@@ -9,7 +8,7 @@ function musicList() {
       cover:
         "https://chillhop.com/wp-content/uploads/2022/01/d7c0bd347f56540babd9dd85454b93a89df84a15-1024x1024.jpg",
       id: uuidv4(),
-      active: false,
+      active: true,
       color: ["#3E272B", "#FF9C77"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=30135",
     },
@@ -135,3 +134,5 @@ function musicList() {
     },
   ];
 }
+
+export default musicList;
