@@ -48,3 +48,10 @@
   border-radius: 20px;
   border: transparent;
 }
+
+.selected-song {
+  background-color: aquamarine;
+  &:hover {
+    background-color: aqua;
+  }
+}
