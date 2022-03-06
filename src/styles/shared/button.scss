@@ -1,0 +1,19 @@
+@import "../styleguide-variables.scss";
+
+.button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  background-color: $color-text-primary;
+  color: $color-text-invert;
+  padding: $spacing-1-5;
+  transition: all 0.3s ease;
+  @include text-style-h6;
+  display: flex;
+  align-items: center;
+  gap: $spacing-1-5;
+  border-radius: 4px;
+  &:hover {
+    background-color: $color-primary-main;
+  }
+}

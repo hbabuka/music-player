@@ -1,15 +1,12 @@
+@import "./styleguide-variables.scss";
+
 nav {
-  min-height: 10vh;
+  height: 6rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  button {
-    background: transparent;
-    cursor: pointer;
-    border: 2px solid rgb(65, 65, 65);
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-  }
+  border-bottom: 1px solid $color-divider;
+  padding: 0 $spacing-4;
 }
 
 @media screen and (min-width: 769px) {

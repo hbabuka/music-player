@@ -26,7 +26,7 @@ $font-stack: Rubik, Roboto, Arial, sans-serif;
 // h1
 $font-size-h1: 2.25rem;
 $font-weight-h1: 600;
-mixin text-styles-h1 {
+@mixin text-style-h1 {
   font-size: $font-size-h1;
   font-weight: $font-weight-h1;
 }
@@ -34,7 +34,7 @@ mixin text-styles-h1 {
 // h2
 $font-size-h2: 2rem;
 $font-weight-h2: 500;
-mixin text-styles-h2 {
+@mixin text-style-h2 {
   font-size: $font-size-h2;
   font-weight: $font-weight-h2;
 }
@@ -42,7 +42,7 @@ mixin text-styles-h2 {
 // h3
 $font-size-h3: 1.5rem;
 $font-weight-h3: 500;
-mixin text-styles-h3 {
+@mixin text-style-h3 {
   font-size: $font-size-h3;
   font-weight: $font-weight-h3;
 }
@@ -50,7 +50,7 @@ mixin text-styles-h3 {
 // h4
 $font-size-h4: 1.125rem;
 $font-weight-h4: 400;
-mixin text-styles-h4 {
+@mixin text-style-h4 {
   font-size: $font-size-h4;
   font-weight: $font-weight-h4;
 }
@@ -58,7 +58,7 @@ mixin text-styles-h4 {
 // h5
 $font-size-h5: 1rem;
 $font-weight-h5: 400;
-mixin text-styles-h5 {
+@mixin text-style-h5 {
   font-size: $font-size-h5;
   font-weight: $font-weight-h5;
 }
@@ -66,15 +66,18 @@ mixin text-styles-h5 {
 // h6
 $font-size-h6: 0.875rem;
 $font-weight-h6: 500;
-mixin text-styles-h6 {
+$letter-spacing-h6: 0.02em;
+@mixin text-style-h6 {
   font-size: $font-size-h6;
   font-weight: $font-weight-h6;
+  letter-spacing: $letter-spacing-h6;
+  text-transform: uppercase;
 }
 
 // Paragraphs
 $font-size-p: 1rem;
 $font-weight-p: 300;
-mixin text-styles-p {
+@mixin text-style-p {
   font-size: $font-size-p;
   font-weight: $font-weight-p;
 }
@@ -82,7 +85,7 @@ mixin text-styles-p {
 // Paragraphs small
 $font-size-p-small: 0.875rem;
 $font-weight-p-small: 300;
-mixin text-styles-p-small {
+@mixin text-style-p-small {
   font-size: $font-size-p-small;
   font-weight: $font-weight-p-small;
 }
@@ -91,9 +94,9 @@ mixin text-styles-p-small {
 
 $scaling-factor: 8px;
 
-$spacing-05: calc($scaling-factor * 0.5); // 4px
-$spacing-075: calc($scaling-factor * 1); // 12px
+$spacing-0-5: calc($scaling-factor * 0.5); // 4px
 $spacing-1: calc($scaling-factor * 1); // 8px
+$spacing-1-5: calc($scaling-factor * 1.5); // 12px
 $spacing-2: calc($scaling-factor * 2); // 16px
 $spacing-4: calc($scaling-factor * 4); // 32px
 $spacing-5: calc($scaling-factor * 5); // 40px
