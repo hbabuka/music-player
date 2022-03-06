@@ -1,0 +1,102 @@
+// Color palette
+
+// Primary color
+$color-primary-main: rgba(254, 81, 89, 1);
+$color-primary-light: rgba(251, 96, 103, 0.22);
+$color-primary-highlight: rgba(251, 96, 103, 0.15);
+
+// Text colors
+$color-text-primary: rgba(12, 19, 25, 1);
+$color-text-secondary: rgba(71, 97, 110, 1);
+$color-text-tertiary: rgba(119, 146, 160, 1);
+$color-text-invert: rgba(255, 255, 255, 1);
+
+// Background colors
+$color-background-paper: rgba(255, 255, 255, 1);
+$color-background-elevation: rgba(228, 234, 237, 1);
+$color-background-elevation-2: rgba(239, 246, 249, 1);
+
+// Neutral colors
+$color-divider: rgba(180, 187, 193, 1);
+
+// Typography
+
+$font-stack: Rubik, Roboto, Arial, sans-serif;
+
+// h1
+$font-size-h1: 2.25rem;
+$font-weight-h1: 600;
+mixin text-styles-h1 {
+  font-size: $font-size-h1;
+  font-weight: $font-weight-h1;
+}
+
+// h2
+$font-size-h2: 2rem;
+$font-weight-h2: 500;
+mixin text-styles-h2 {
+  font-size: $font-size-h2;
+  font-weight: $font-weight-h2;
+}
+
+// h3
+$font-size-h3: 1.5rem;
+$font-weight-h3: 500;
+mixin text-styles-h3 {
+  font-size: $font-size-h3;
+  font-weight: $font-weight-h3;
+}
+
+// h4
+$font-size-h4: 1.125rem;
+$font-weight-h4: 400;
+mixin text-styles-h4 {
+  font-size: $font-size-h4;
+  font-weight: $font-weight-h4;
+}
+
+// h5
+$font-size-h5: 1rem;
+$font-weight-h5: 400;
+mixin text-styles-h5 {
+  font-size: $font-size-h5;
+  font-weight: $font-weight-h5;
+}
+
+// h6
+$font-size-h6: 0.875rem;
+$font-weight-h6: 500;
+mixin text-styles-h6 {
+  font-size: $font-size-h6;
+  font-weight: $font-weight-h6;
+}
+
+// Paragraphs
+$font-size-p: 1rem;
+$font-weight-p: 300;
+mixin text-styles-p {
+  font-size: $font-size-p;
+  font-weight: $font-weight-p;
+}
+
+// Paragraphs small
+$font-size-p-small: 0.875rem;
+$font-weight-p-small: 300;
+mixin text-styles-p-small {
+  font-size: $font-size-p-small;
+  font-weight: $font-weight-p-small;
+}
+
+// Spacing
+
+$scaling-factor: 8px;
+
+$spacing-05: calc($scaling-factor * 0.5); // 4px
+$spacing-075: calc($scaling-factor * 1); // 12px
+$spacing-1: calc($scaling-factor * 1); // 8px
+$spacing-2: calc($scaling-factor * 2); // 16px
+$spacing-4: calc($scaling-factor * 4); // 32px
+$spacing-5: calc($scaling-factor * 5); // 40px
+$spacing-8: calc($scaling-factor * 8); // 64px
+$spacing-12: calc($scaling-factor * 12); // 96px
+$spacing-24: calc($scaling-factor * 24); // 192px
