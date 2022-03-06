@@ -9,9 +9,26 @@ nav {
     border: 2px solid rgb(65, 65, 65);
     padding: 0.5rem;
     transition: all 0.3s ease;
-    &:hover {
+  }
+}
+
+@media screen and (min-width: 769px) {
+  nav {
+    button:hover {
       background: rgb(65, 65, 65);
       color: white;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    button {
+      z-index: 10;
+      &:active {
+        background: rgb(65, 65, 65);
+        color: white;
+      }
     }
   }
 }
