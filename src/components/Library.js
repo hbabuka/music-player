@@ -12,6 +12,8 @@ const Library = ({
   setSongs,
   libraryStatus,
   setLibraryStatus,
+  songInfo,
+  duration,
 }) => {
   const handleButtonClick = () => {
     setLibraryStatus(!libraryStatus);
@@ -21,10 +23,10 @@ const Library = ({
       className={`library-container ${libraryStatus ? "library-active" : ""}`}
     >
       <div className="library-header">
-        <h3>Library</h3>
+        <h3>My Library</h3>
         <IconButton
           icon={faAngleLeft}
-          iconSize="xl"
+          iconsize="xl"
           className="icon-button-small"
           onClick={handleButtonClick}
         />
@@ -40,6 +42,8 @@ const Library = ({
             setSongs={setSongs}
             currentSong={currentSong}
             key={song.id}
+            songInfo={songInfo}
+            duration={duration}
           />
         ))}
       </div>

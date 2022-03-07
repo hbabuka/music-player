@@ -116,6 +116,12 @@ $spacing-24: calc($scaling-factor * 24); // 192px
   padding: 0 $spacing-4;
 }
 
+@mixin text-overflow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 // Styling constants
 
 $library-width: 25rem;

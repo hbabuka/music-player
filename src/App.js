@@ -51,6 +51,7 @@ function App() {
         currentSong={currentSong}
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
+        songInfo={songInfo}
       />
       <div
         className={`page-content ${

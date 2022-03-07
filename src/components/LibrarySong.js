@@ -16,6 +16,7 @@ const LibrarySong = ({
       audioRef.current.play();
     }
   };
+
   return (
     <div
       className={`library-song ${
@@ -23,11 +24,14 @@ const LibrarySong = ({
       }`}
       onClick={handleSelectSong}
     >
-      <img src={song.cover} alt={song.name} />
-      <div className="song-description">
-        <h3>{song.name}</h3>
-        <h4>{song.artist}</h4>
+      <div className="library-song-info" id={`#${songs.id}`}>
+        <img src={song.cover} alt={song.name} />
+        <div className="song-description">
+          <h4>{song.name}</h4>
+          <h5>{song.artist}</h5>
+        </div>
       </div>
+      {/* <p></p> */}
     </div>
   );
 };

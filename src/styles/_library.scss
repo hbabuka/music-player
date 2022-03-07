@@ -3,10 +3,12 @@
 .library-container {
   flex: 1 0 $library-width;
   height: 100%;
-  background-color: white;
-  box-shadow: 2px 2px 50px rgb(177, 177, 177);
+  background-color: $color-background-paper;
+  box-shadow: -5px 0px 15px 0px rgba(174, 174, 174, 0.25) inset;
   transform: translateX(-100%);
   transition: all 0.5s ease;
+  padding-bottom: $spacing-2;
+  width: $library-width;
 }
 
 .library-active {
@@ -15,57 +17,60 @@
 
 .library-header {
   @include header-style;
-  // position: sticky;
 }
 
 .library-songs {
   height: 100%;
-
   overflow-y: scroll;
+  width: 100%;
 }
+
+// Library song styles
 
 .library-song {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: $spacing-2 $spacing-4;
   transition: background-color 0.5s ease;
-  img {
-    width: 30%;
-  }
+  width: 100%;
+
   &:hover {
     cursor: pointer;
-    background-color: rgb(204, 247, 247);
+    background-color: $color-background-elevation-2;
+  }
+}
+
+.library-song-info {
+  display: flex;
+  gap: $spacing-2;
+  align-items: center;
+  width: 100%;
+  img {
+    width: 4rem;
+    border-radius: 0.5rem;
   }
 }
 
 .song-description {
-  padding-left: 1rem;
-  h3 {
-    font-size: 1rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-0-5;
+  min-width: 0;
   h4 {
-    font-size: 0.7rem;
+    color: $color-text-primary;
+    @include text-overflow;
   }
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(155, 155, 155, 0.5);
-  border-radius: 20px;
-  border: transparent;
+  h5 {
+    color: $color-text-tertiary;
+    @include text-overflow;
+  }
 }
 
 .selected-song {
-  background-color: aquamarine;
+  background-color: $color-primary-highlight;
   &:hover {
-    background-color: aqua;
+    background-color: $color-primary-light;
   }
 }
 
@@ -73,4 +78,26 @@
   .library-container {
     width: 100%;
   }
+}
+
+// Scrollbar styling
+
+// Chrome, Edge, Safari
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-divider;
+  border-radius: 3px;
+}
+
+// Firefox
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $color-divider;
 }
