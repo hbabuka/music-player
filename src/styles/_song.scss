@@ -1,18 +1,42 @@
+@import "./styleguide-variables.scss";
+
 .song-container {
-  min-height: 60vh;
+  height: 20rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   img {
-    width: 20%;
-    border-radius: 50%;
+    width: 20rem;
+    border-radius: 2rem;
   }
   h2 {
     padding: 3rem 1rem 1rem 1rem;
   }
   h3 {
     font-size: 1rem;
+  }
+  gap: $spacing-5;
+  .song-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .main-info,
+  .more-info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2;
+  }
+  .more-info {
+    background-color: $color-background-elevation-2;
+    padding: $spacing-2;
+    border-radius: 0.5rem;
+  }
+  .key-value-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-0-5;
   }
 }
 

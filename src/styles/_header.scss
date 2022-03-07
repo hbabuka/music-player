@@ -1,16 +1,14 @@
 @import "./styleguide-variables.scss";
 
-nav {
-  height: 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid $color-divider;
-  padding: 0 $spacing-4;
+header {
+  @include header-style;
+  svg.logo path {
+    fill: $color-text-primary;
+  }
 }
 
 @media screen and (min-width: 769px) {
-  nav {
+  header {
     button:hover {
       background: rgb(65, 65, 65);
       color: white;
@@ -19,7 +17,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-  nav {
+  header {
     button {
       z-index: 10;
       &:active {

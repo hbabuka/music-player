@@ -6,7 +6,7 @@ $color-primary-light: rgba(251, 96, 103, 0.22);
 $color-primary-highlight: rgba(251, 96, 103, 0.15);
 
 // Text colors
-$color-text-primary: rgba(12, 19, 25, 1);
+$color-text-primary: rgba(39, 49, 57, 1);
 $color-text-secondary: rgba(71, 97, 110, 1);
 $color-text-tertiary: rgba(119, 146, 160, 1);
 $color-text-invert: rgba(255, 255, 255, 1);
@@ -103,3 +103,18 @@ $spacing-5: calc($scaling-factor * 5); // 40px
 $spacing-8: calc($scaling-factor * 8); // 64px
 $spacing-12: calc($scaling-factor * 12); // 96px
 $spacing-24: calc($scaling-factor * 24); // 192px
+
+// Component mixins
+
+@mixin header-style {
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-divider;
+  padding: 0 $spacing-4;
+}
+
+// Styling constants
+
+$library-width: 25rem;

@@ -8,11 +8,13 @@ const LibrarySong = ({
   isPlaying,
   setSongs,
   currentSong,
+  setIsPlaying,
 }) => {
   const handleSelectSong = async () => {
     await setCurrentSong(song);
-    audioRef.current.play();
-    if (isPlaying) audioRef.current.play();
+    if (isPlaying) {
+      audioRef.current.play();
+    }
   };
   return (
     <div

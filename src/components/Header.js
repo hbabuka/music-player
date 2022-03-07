@@ -4,16 +4,16 @@ import { faListUl, faMusic } from "@fortawesome/free-solid-svg-icons";
 import { ReactComponent as Logo } from "../assets/Logo.svg";
 import Button from "./shared/Button";
 
-const Nav = ({ libraryStatus, setLibraryStatus }) => {
+const Header = ({ libraryStatus, setLibraryStatus }) => {
   const handleButtonClick = () => {
     setLibraryStatus(!libraryStatus);
   };
   return (
-    <nav>
+    <header>
       <Logo className="logo" />
       <Button label="My Library" icon={faListUl} onClick={handleButtonClick} />
-    </nav>
+    </header>
   );
 };
 
-export default Nav;
+export default Header;

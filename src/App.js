@@ -5,7 +5,7 @@ import Song from "./components/Song";
 import "./styles/App.scss";
 import data from "./data";
 import { useRef } from "react";
-import Nav from "./components/Nav";
+import Header from "./components/Header";
 
 function App() {
   const audioRef = useRef(null);
@@ -37,30 +37,44 @@ function App() {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
     if (isPlaying) audioRef.current.play();
+    return;
   };
   return (
-    <div className={`App ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Song currentSong={currentSong} />
-      <Player
-        currentSong={currentSong}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        audioRef={audioRef}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
-        songs={songs}
-        setCurrentSong={setCurrentSong}
-      />
+    <div className="App">
       <Library
         songs={songs}
         setCurrentSong={setCurrentSong}
         audioRef={audioRef}
         isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
         setSongs={setSongs}
         currentSong={currentSong}
         libraryStatus={libraryStatus}
+        setLibraryStatus={setLibraryStatus}
       />
+      <div
+        className={`page-content ${
+          libraryStatus ? "" : "page-content-full-width"
+        }`}
+      >
+        <Header
+          libraryStatus={libraryStatus}
+          setLibraryStatus={setLibraryStatus}
+        />
+        <main>
+          <Song currentSong={currentSong} />
+          <Player
+            currentSong={currentSong}
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            audioRef={audioRef}
+            songInfo={songInfo}
+            setSongInfo={setSongInfo}
+            songs={songs}
+            setCurrentSong={setCurrentSong}
+          />
+        </main>
+      </div>
       <audio
         src={currentSong.audio}
         ref={audioRef}
