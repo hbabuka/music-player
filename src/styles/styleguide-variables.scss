@@ -108,6 +108,7 @@ $spacing-24: calc($scaling-factor * 24); // 192px
 
 @mixin header-style {
   height: 6rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -118,3 +119,9 @@ $spacing-24: calc($scaling-factor * 24); // 192px
 // Styling constants
 
 $library-width: 25rem;
+
+// Animations
+
+@mixin tranform-scale-on-hover {
+  transform: scale(0.95);
+}

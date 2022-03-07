@@ -5,22 +5,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: $spacing-5;
+  cursor: url(.././assets/custom-cursor.svg), auto;
   img {
     width: 20rem;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
   }
-  h2 {
-    padding: 3rem 1rem 1rem 1rem;
-  }
-  h3 {
-    font-size: 1rem;
-  }
-  gap: $spacing-5;
   .song-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    flex: 1;
+    h1,
+    h4 {
+      color: $color-text-primary;
+    }
+    h3 {
+      color: $color-text-tertiary;
+    }
   }
   .main-info,
   .more-info {
@@ -33,10 +36,25 @@
     padding: $spacing-2;
     border-radius: 0.5rem;
   }
-  .key-value-wrapper {
+  .key-value-container {
     display: flex;
     flex-direction: column;
     gap: $spacing-0-5;
+    p {
+      @include text-style-p-small;
+      color: $color-text-tertiary;
+    }
+    h4 {
+      color: $color-text-primary;
+    }
+  }
+  img,
+  .main-info,
+  .more-info {
+    transition: all 0.3s ease-out;
+    &:hover {
+      @include tranform-scale-on-hover;
+    }
   }
 }
 
