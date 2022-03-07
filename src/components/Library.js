@@ -13,7 +13,6 @@ const Library = ({
   libraryStatus,
   setLibraryStatus,
   songInfo,
-  duration,
 }) => {
   const handleButtonClick = () => {
     setLibraryStatus(!libraryStatus);
@@ -43,7 +42,6 @@ const Library = ({
             currentSong={currentSong}
             key={song.id}
             songInfo={songInfo}
-            duration={duration}
           />
         ))}
       </div>
