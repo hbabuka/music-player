@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faListUl, faMusic } from "@fortawesome/free-solid-svg-icons";
+import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
 import { ReactComponent as Logo } from "../assets/Logo.svg";
 import Button from "./shared/Button";
 
@@ -10,8 +9,14 @@ const Header = ({ libraryStatus, setLibraryStatus }) => {
   };
   return (
     <header>
-      <Logo className="logo" />
-      <Button label="My Library" icon={faListUl} onClick={handleButtonClick} />
+      <a href=".">
+        <Logo className="logo" />
+      </a>
+      <Button
+        label="My Library"
+        icon={faHeadphones}
+        onClick={handleButtonClick}
+      />
     </header>
   );
 };
