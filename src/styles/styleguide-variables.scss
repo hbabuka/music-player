@@ -1,5 +1,7 @@
 // Color palette
 
+// Light theme
+
 // Primary color
 $color-primary-main: rgba(254, 81, 89, 1);
 $color-primary-light: rgba(251, 96, 103, 0.22);
@@ -19,6 +21,28 @@ $color-background-elevation-2: rgba(239, 246, 249, 1);
 // Neutral colors
 $color-divider-solid: rgba(180, 187, 193, 1);
 $color-divider-transparent: rgba(180, 187, 193, 0.6);
+
+// Dark theme
+
+// Primary color - dark mode
+$color-primary-main: rgba(254, 107, 112, 1);
+$color-primary-light: rgba(210, 84, 89, 0.22);
+$color-primary-highlight: rgba(210, 84, 89, 0.15);
+
+// Text colors - dark mode
+$color-text-primary: rgba(239, 246, 249, 1);
+$color-text-secondary: rgba(170, 189, 198, 1);
+$color-text-tertiary: rgba(93, 118, 132, 1);
+$color-text-invert: rgba(16, 25, 32, 1);
+
+// Background colors - dark mode
+$color-background-paper: rgba(16, 25, 32, 1);
+$color-background-elevation: rgba(36, 48, 63, 1);
+$color-background-elevation-2: rgba(26, 35, 46, 1);
+
+// Neutral colors - dark mode
+$color-divider-solid: rgba(67, 80, 90, 1);
+$color-divider-transparent: rgba(67, 80, 90, 0.6);
 
 // Utility colors
 $color-utility-transparent: rgba(255, 255, 255, 0);
