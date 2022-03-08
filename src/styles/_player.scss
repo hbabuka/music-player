@@ -10,8 +10,14 @@
   display: flex;
   gap: $spacing-2;
   align-items: center;
+}
+
+.time-display-container {
+  min-width: 2.5rem;
+  margin: auto;
   h4 {
     color: $color-text-primary;
+    text-align: center;
   }
 }
 
@@ -27,7 +33,6 @@ input[type="range"] {
   -webkit-appearance: none;
   background-color: transparent;
   cursor: pointer;
-
   &:focus {
     outline: none;
   }
@@ -44,15 +49,16 @@ input[type="range"] {
 }
 
 .input-track {
-  background-color: $color-text-primary;
+  background-image: linear-gradient(
+    to right,
+    $color-text-primary,
+    $color-primary-main
+  );
   width: 100%;
   height: 0.75rem;
   position: relative;
   border-radius: 0.5rem;
   overflow: hidden;
-  &:hover {
-    background-color: $color-primary-main;
-  }
 }
 
 .animate-track {

@@ -58,7 +58,9 @@ const Player = ({
   return (
     <div className="player-container">
       <div className="time-control">
-        <h4>{getTime(songInfo.currentTime)}</h4>
+        <div className="time-display-container">
+          <h4>{getTime(songInfo.currentTime)}</h4>
+        </div>
         <div className="input-track">
           <input
             type="range"
@@ -69,7 +71,9 @@ const Player = ({
           />
           <div className="animate-track" style={trackAnim}></div>
         </div>
-        <h4>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</h4>
+        <div className="time-display-container">
+          <h4>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</h4>
+        </div>
       </div>
       <div className="player-buttons">
         <IconButton
