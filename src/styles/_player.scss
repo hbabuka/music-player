@@ -1,38 +1,33 @@
 .player-container {
-  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: $spacing-5;
 }
 
 .time-control {
-  width: 50%;
+  width: 100%;
   display: flex;
+  gap: $spacing-2;
   align-items: center;
-  p {
-    padding: 1rem;
+  h4 {
+    color: $color-text-primary;
   }
 }
 
-.play-control {
-  width: 30%;
+.player-buttons {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: $spacing-8;
   padding: 1rem;
-  svg {
-    cursor: pointer;
-  }
 }
 
 input[type="range"] {
   width: 100%;
-  padding: 1rem 0;
   -webkit-appearance: none;
   background-color: transparent;
   cursor: pointer;
-  padding: 0;
+
   &:focus {
     outline: none;
   }
@@ -49,15 +44,19 @@ input[type="range"] {
 }
 
 .input-track {
+  background-color: $color-text-primary;
   width: 100%;
-  height: 1rem;
+  height: 0.75rem;
   position: relative;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   overflow: hidden;
+  &:hover {
+    background-color: $color-primary-main;
+  }
 }
 
 .animate-track {
-  background: rgb(199, 199, 199);
+  background: $color-background-elevation;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -71,7 +70,7 @@ input[type="range"] {
   .time-control {
     width: 90%;
   }
-  .play-control {
+  .player-buttons {
     width: 60%;
   }
 }

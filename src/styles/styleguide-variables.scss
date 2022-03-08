@@ -17,7 +17,11 @@ $color-background-elevation: rgba(228, 234, 237, 1);
 $color-background-elevation-2: rgba(239, 246, 249, 1);
 
 // Neutral colors
-$color-divider: rgba(180, 187, 193, 1);
+$color-divider-solid: rgba(180, 187, 193, 1);
+$color-divider-transparent: rgba(180, 187, 193, 0.6);
+
+// Utility colors
+$color-utility-transparent: rgba(255, 255, 255, 0);
 
 // Typography
 
@@ -112,7 +116,7 @@ $spacing-24: calc($scaling-factor * 24); // 192px
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid $color-divider;
+  border-bottom: 1px solid $color-divider-solid;
   padding: 0 $spacing-4;
 }
 

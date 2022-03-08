@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faCircle } from "@fortawesome/free-solid-svg-icons";
 
 const LibrarySong = ({
   song,
@@ -31,7 +31,7 @@ const LibrarySong = ({
         <h4>{song.name}</h4>
         <h5>{song.artist}</h5>
       </div>
-      {song.id === currentSong.id && <FontAwesomeIcon icon={faPlay} />}
+      <FontAwesomeIcon icon={song.id === currentSong.id ? faCircle : faPlay} />
     </div>
   );
 };

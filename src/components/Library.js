@@ -26,7 +26,7 @@ const Library = ({
         <IconButton
           icon={faXmark}
           iconsize="xl"
-          className="icon-button icon-button-small"
+          className="icon-button"
           onClick={handleButtonClick}
         />
       </div>

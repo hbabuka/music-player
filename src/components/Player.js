@@ -1,10 +1,12 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { faPause } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCirclePause,
+  faCirclePlay,
+  faStepBackward,
+  faStepForward,
+} from "@fortawesome/free-solid-svg-icons";
 import { getTime } from "../utils";
+import IconButton from "./shared/IconButton";
 
 const Player = ({
   currentSong,
@@ -56,13 +58,8 @@ const Player = ({
   return (
     <div className="player-container">
       <div className="time-control">
-        <p>{getTime(songInfo.currentTime)}</p>
-        <div
-          className="input-track"
-          style={{
-            background: "grey",
-          }}
-        >
+        <h4>{getTime(songInfo.currentTime)}</h4>
+        <div className="input-track">
           <input
             type="range"
             min="0"
@@ -72,25 +69,25 @@ const Player = ({
           />
           <div className="animate-track" style={trackAnim}></div>
         </div>
-        <p>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</p>
+        <h4>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</h4>
       </div>
-      <div className="play-control">
-        <FontAwesomeIcon
-          className="skip-back-icon"
-          icon={faAngleLeft}
-          size="2x"
+      <div className="player-buttons">
+        <IconButton
+          icon={faStepBackward}
+          className="icon-button"
+          iconsize="2x"
           onClick={() => handleSkipTrack("skip-back")}
         />
-        <FontAwesomeIcon
-          className="play-icon"
-          icon={isPlaying ? faPause : faPlay}
-          size="2x"
+        <IconButton
+          icon={isPlaying ? faCirclePause : faCirclePlay}
+          className="icon-button"
+          iconsize="4x"
           onClick={handlePlaySong}
         />
-        <FontAwesomeIcon
-          className="skip-forward-icon"
-          icon={faAngleRight}
-          size="2x"
+        <IconButton
+          icon={faStepForward}
+          className="icon-button"
+          iconsize="2x"
           onClick={() => handleSkipTrack("skip-forward")}
         />
       </div>

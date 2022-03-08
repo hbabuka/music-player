@@ -7,7 +7,6 @@
   box-shadow: -5px 0px 15px 0px rgba(174, 174, 174, 0.25) inset;
   transform: translateX(-100%);
   transition: all 0.5s ease;
-  padding-bottom: $spacing-2;
   width: $library-width;
 }
 
@@ -32,9 +31,17 @@
   padding: $spacing-2 $spacing-4;
   transition: background-color 0.5s ease;
   gap: $spacing-2;
+  svg {
+    width: 0;
+    transition: all 0.5s ease;
+  }
   &:hover {
     cursor: pointer;
     background-color: $color-background-elevation-2;
+    svg {
+      width: auto;
+      margin-right: $spacing-1;
+    }
   }
 }
 
@@ -69,6 +76,13 @@ img.song-cover {
   &:hover {
     background-color: $color-primary-light;
   }
+  svg,
+  h4 {
+    color: $color-primary-main;
+  }
+  svg {
+    width: auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -82,6 +96,7 @@ img.song-cover {
 // Chrome, Edge, Safari
 ::-webkit-scrollbar {
   width: 6px;
+  transition: all 0.5s ease;
 }
 
 ::-webkit-scrollbar-track {
@@ -89,12 +104,20 @@ img.song-cover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $color-divider;
+  background-color: $color-utility-transparent;
   border-radius: 3px;
+}
+
+.library-songs:hover::-webkit-scrollbar-thumb {
+  background-color: $color-divider-transparent;
 }
 
 // Firefox
 * {
   scrollbar-width: thin;
-  scrollbar-color: $color-divider;
+  scrollbar-color: $color-utility-transparent;
+}
+
+.library-songs:hover > * {
+  scrollbar-color: $color-divider-transparent;
 }
