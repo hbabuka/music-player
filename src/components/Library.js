@@ -1,6 +1,6 @@
 import React from "react";
 import LibrarySong from "./LibrarySong";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import IconButton from "./shared/IconButton";
 
 const Library = ({
@@ -24,9 +24,9 @@ const Library = ({
       <div className="library-header">
         <h3>My Library</h3>
         <IconButton
-          icon={faAngleLeft}
+          icon={faXmark}
           iconsize="xl"
-          className="icon-button-small"
+          className="icon-button icon-button-small"
           onClick={handleButtonClick}
         />
       </div>

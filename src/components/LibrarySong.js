@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
 const LibrarySong = ({
   song,
@@ -24,14 +26,12 @@ const LibrarySong = ({
       }`}
       onClick={handleSelectSong}
     >
-      <div className="library-song-info" id={`#${songs.id}`}>
-        <img src={song.cover} alt={song.name} />
-        <div className="song-description">
-          <h4>{song.name}</h4>
-          <h5>{song.artist}</h5>
-        </div>
+      <img className="song-cover" src={song.cover} alt={song.name} />
+      <div className="song-description">
+        <h4>{song.name}</h4>
+        <h5>{song.artist}</h5>
       </div>
-      {/* <p></p> */}
+      {song.id === currentSong.id && <FontAwesomeIcon icon={faPlay} />}
     </div>
   );
 };
