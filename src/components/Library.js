@@ -22,7 +22,10 @@ const Library = ({
       className={`library-container ${libraryStatus ? "library-active" : ""}`}
     >
       <div className="library-header">
-        <h3>My Library</h3>
+        <div className="library-info">
+          <h3>My Library</h3>
+          <h4>({songs.length})</h4>
+        </div>
         <IconButton
           icon={faXmark}
           iconsize="xl"

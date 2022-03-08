@@ -3,14 +3,14 @@ import { v4 as uuidv4 } from "uuid";
 function musicList() {
   return [
     {
-      name: "Embers",
-      artist: "Molly McPhaul, Enluv",
+      name: "Soulsounds",
+      artist: "Parkbench Epiphany",
       cover:
-        "https://chillhop.com/wp-content/uploads/2022/01/d7c0bd347f56540babd9dd85454b93a89df84a15-1024x1024.jpg",
-      year: "2022",
-      collection: "Field Studies Vol. 1",
+        "https://chillhop.com/wp-content/uploads/2021/11/4c9682ee612a3b8ef51de286c49b5489408e9257-1024x1024.jpg",
+      year: "2021",
+      collection: "Antimidas",
       id: uuidv4(),
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=30135",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=27500",
     },
     {
       name: "Tropical Midnight",
@@ -23,6 +23,16 @@ function musicList() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=31516",
     },
     {
+      name: "Embers",
+      artist: "Molly McPhaul, Enluv",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2022/01/d7c0bd347f56540babd9dd85454b93a89df84a15-1024x1024.jpg",
+      year: "2022",
+      collection: "Field Studies Vol. 1",
+      id: uuidv4(),
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=30135",
+    },
+    {
       name: "Caravan",
       artist: "goosetaf, The Field Tapes, Makzo",
       cover:
@@ -32,16 +42,7 @@ function musicList() {
       id: uuidv4(),
       audio: "https://mp3.chillhop.com/serve.php/?mp3=20122",
     },
-    {
-      name: "Soulsounds",
-      artist: "Parkbench Epiphany",
-      cover:
-        "https://chillhop.com/wp-content/uploads/2021/11/4c9682ee612a3b8ef51de286c49b5489408e9257-1024x1024.jpg",
-      year: "2021",
-      collection: "Antimidas",
-      id: uuidv4(),
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=27500",
-    },
+
     {
       name: "la zona",
       artist: "Maydee",

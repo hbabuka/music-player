@@ -18,6 +18,18 @@
   @include header-style;
 }
 
+.library-info {
+  display: flex;
+  align-items: center;
+  gap: $spacing-1;
+  h3 {
+    color: $color-text-primary;
+  }
+  h4 {
+    color: $color-text-secondary;
+  }
+}
+
 .library-songs {
   height: 100%;
   overflow-y: scroll;
