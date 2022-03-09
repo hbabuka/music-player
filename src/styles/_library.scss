@@ -11,7 +11,7 @@
 
   @include media-query-for(mobile) {
     flex: 1 0 100%;
-    width: 100%;
+    width: 100vw;
   }
 }
 
@@ -102,9 +102,15 @@ img.song-cover {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .library-container {
-    width: 100%;
+@include media-query-for(mobile) {
+  .library-song {
+    padding: $spacing-2;
+  }
+  img.song-cover {
+    width: 3rem;
+  }
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
 

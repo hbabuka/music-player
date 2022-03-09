@@ -59,8 +59,10 @@
 
   @include media-query-for(mobile) {
     flex-direction: column;
+    justify-content: flex-start;
     gap: 0;
     height: 100%;
+    overflow-y: scroll;
     img {
       width: 100vw;
       border-radius: 0;
@@ -68,7 +70,7 @@
     .song-info {
       width: 100vw;
       padding: $spacing-2;
-      justify-content: initial;
+      justify-content: flex-start;
       gap: $spacing-4;
       .main-info {
         gap: $spacing-1;
