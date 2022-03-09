@@ -103,8 +103,21 @@ img.song-cover {
   }
 }
 
+.song-description.dark-mode {
+  h4 {
+    color: $color-text-primary-dark;
+  }
+  h5 {
+    color: $color-text-tertiary-dark;
+  }
+}
+
 .library-song svg {
   color: $color-text-primary;
+}
+
+.library-song.dark-mode svg {
+  color: $color-text-primary-dark;
 }
 
 .selected-song {
@@ -118,6 +131,17 @@ img.song-cover {
   }
   svg {
     width: auto;
+  }
+}
+
+.selected-song.dark-mode {
+  background-color: $color-primary-highlight-dark;
+  &:hover {
+    background-color: $color-primary-light-dark;
+  }
+  svg,
+  h4 {
+    color: $color-primary-main-dark;
   }
 }
 
