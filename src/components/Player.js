@@ -55,6 +55,23 @@ const Player = ({
     transform: `translateX(${songInfo.animationPercentage}%)`,
   };
 
+  let audio = document.querySelector("audio");
+  if (audio) {
+    window.addEventListener("keydown", function (event) {
+      if (event.key === " ") {
+        // eat the spacebar, so it does not scroll the page
+        event.preventDefault();
+        if (isPlaying) {
+          audio.pause();
+          setIsPlaying(!isPlaying);
+        } else {
+          audio.play();
+          setIsPlaying(!isPlaying);
+        }
+      }
+    });
+  }
+
   return (
     <div className="player-container">
       <div className="time-control">
@@ -87,6 +104,11 @@ const Player = ({
           className="icon-button play-button"
           iconsize="4x"
           onClick={handlePlaySong}
+          onKeyUp={(event) => {
+            if ([" "].includes(event.key)) {
+              return handlePlaySong;
+            }
+          }}
         />
         <IconButton
           icon={faStepForward}
