@@ -7,6 +7,13 @@ header {
   }
 }
 
+header.dark-mode {
+  border-bottom: 1px solid $color-divider-solid-dark;
+  svg.logo path {
+    fill: $color-text-primary-dark;
+  }
+}
+
 @media screen and (min-width: 769px) {
   header {
     button:hover {

@@ -58,6 +58,29 @@
   }
 }
 
+.song-container.dark-mode {
+  .song-info {
+    h1,
+    h4 {
+      color: $color-text-primary-dark;
+    }
+    h3 {
+      color: $color-text-tertiary-dark;
+    }
+  }
+  .more-info {
+    background-color: $color-background-elevation-2-dark;
+  }
+  .key-value-container {
+    p {
+      color: $color-text-tertiary-dark;
+    }
+    h4 {
+      color: $color-text-primary-dark;
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .song-container {
     img {

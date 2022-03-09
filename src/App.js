@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Library from "./components/Library";
 import Player from "./components/Player";
 import Song from "./components/Song";
-import "./styles/App.scss";
+import "./styles/styles.scss";
 import data from "./data";
 import { useRef } from "react";
 import Header from "./components/Header";

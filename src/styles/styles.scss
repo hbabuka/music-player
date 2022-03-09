@@ -58,7 +58,12 @@ button {
 @import "./styleguide-variables.scss";
 
 body {
+  background-color: $color-background-paper;
   font-family: $font-stack;
+}
+
+body.dark-mode {
+  background-color: $color-background-paper-dark;
 }
 
 h1 {

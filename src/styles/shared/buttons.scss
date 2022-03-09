@@ -22,6 +22,14 @@
   }
 }
 
+.button.dark-mode {
+  background-color: $color-text-primary-dark;
+  color: $color-text-invert-dark;
+  &:hover {
+    background-color: $color-primary-main-dark;
+  }
+}
+
 // Icon button
 
 .icon-button {
@@ -31,5 +39,14 @@
   }
   &:hover > svg {
     color: $color-primary-main;
+  }
+}
+
+.icon-button.dark-mode {
+  svg {
+    color: $color-text-primary-dark;
+  }
+  &:hover > svg {
+    color: $color-primary-main-dark;
   }
 }

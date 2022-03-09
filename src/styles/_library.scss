@@ -10,12 +10,21 @@
   width: $library-width;
 }
 
+.library-container.dark-mode {
+  background-color: $color-background-paper;
+  box-shadow: -5px 0px 15px 0px rgba(1, 11, 19, 0.6) inset;
+}
+
 .library-active {
   transform: translateX(0%);
 }
 
 .library-header {
   @include header-style;
+}
+
+.library-header.dark-mode {
+  border-bottom: 1px solid $color-divider-solid-dark;
 }
 
 .library-info {
@@ -27,6 +36,15 @@
   }
   h4 {
     color: $color-text-secondary;
+  }
+}
+
+.library-info.dark-mode {
+  h3 {
+    color: $color-text-primary-dark;
+  }
+  h4 {
+    color: $color-text-secondary-dark;
   }
 }
 
@@ -54,6 +72,12 @@
       width: auto;
       margin-right: $spacing-1;
     }
+  }
+}
+
+.library-song.dark-mode {
+  &:hover {
+    background-color: $color-background-elevation-2-dark;
   }
 }
 
