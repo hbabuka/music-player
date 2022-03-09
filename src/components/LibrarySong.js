@@ -4,13 +4,10 @@ import { faPlay, faCircle } from "@fortawesome/free-solid-svg-icons";
 
 const LibrarySong = ({
   song,
-  songs,
   setCurrentSong,
   audioRef,
   isPlaying,
-  setSongs,
   currentSong,
-  setIsPlaying,
 }) => {
   const handleSelectSong = async () => {
     await setCurrentSong(song);
