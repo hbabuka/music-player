@@ -84,7 +84,7 @@ const Player = ({
         />
         <IconButton
           icon={isPlaying ? faCirclePause : faCirclePlay}
-          className="icon-button"
+          className="icon-button play-button"
           iconsize="4x"
           onClick={handlePlaySong}
         />

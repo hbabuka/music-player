@@ -121,7 +121,8 @@ main {
   justify-content: space-between;
   width: 50rem;
   flex: 1;
-  padding-block: $spacing-12;
+  margin-top: $spacing-24;
+  margin-bottom: $spacing-8;
 }
 
 // Partial styles

@@ -25,7 +25,11 @@
   display: flex;
   align-items: center;
   gap: $spacing-8;
-  padding: 1rem;
+}
+
+.play-button {
+  padding-inline: 0;
+  border-radius: 50%;
 }
 
 input[type="range"] {
