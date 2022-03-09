@@ -19,10 +19,10 @@
     flex: 1;
     h1,
     h4 {
-      color: $color-text-primary;
+      color: var(--color-text-primary);
     }
     h3 {
-      color: $color-text-tertiary;
+      color: var(--color-text-tertiary);
     }
   }
   .main-info,
@@ -32,7 +32,7 @@
     gap: $spacing-2;
   }
   .more-info {
-    background-color: $color-background-elevation-2;
+    background-color: var(--color-background-elevation-2);
     padding: $spacing-2;
     border-radius: 0.5rem;
   }
@@ -42,10 +42,10 @@
     gap: $spacing-0-5;
     p {
       @include text-style-p-small;
-      color: $color-text-tertiary;
+      color: var(--color-text-tertiary);
     }
     h4 {
-      color: $color-text-primary;
+      color: var(--color-text-primary);
     }
   }
   img,
@@ -54,29 +54,6 @@
     transition: all 0.3s ease-out;
     &:hover {
       @include tranform-scale-on-hover;
-    }
-  }
-}
-
-.song-container.dark-mode {
-  .song-info {
-    h1,
-    h4 {
-      color: $color-text-primary-dark;
-    }
-    h3 {
-      color: $color-text-tertiary-dark;
-    }
-  }
-  .more-info {
-    background-color: $color-background-elevation-2-dark;
-  }
-  .key-value-container {
-    p {
-      color: $color-text-tertiary-dark;
-    }
-    h4 {
-      color: $color-text-primary-dark;
     }
   }
 }

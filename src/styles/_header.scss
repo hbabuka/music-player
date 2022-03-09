@@ -3,22 +3,30 @@
 header {
   @include header-style;
   svg.logo path {
-    fill: $color-text-primary;
+    fill: var(--color-text-primary);
   }
 }
 
-header.dark-mode {
-  border-bottom: 1px solid $color-divider-solid-dark;
-  svg.logo path {
-    fill: $color-text-primary-dark;
+.header-buttons {
+  display: flex;
+  gap: $spacing-4;
+  .icon-button {
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+    &:hover .fa-moon {
+      transform: rotate(360deg);
+    }
+    &:hover .fa-sun {
+      transform: rotate(90deg);
+    }
   }
 }
 
 @media screen and (min-width: 769px) {
   header {
     button:hover {
-      background: rgb(65, 65, 65);
-      color: white;
+      // background: rgb(65, 65, 65);
+      // color: white;
     }
   }
 }
@@ -28,8 +36,8 @@ header.dark-mode {
     button {
       z-index: 10;
       &:active {
-        background: rgb(65, 65, 65);
-        color: white;
+        // background: rgb(65, 65, 65);
+        // color: white;
       }
     }
   }

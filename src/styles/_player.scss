@@ -16,14 +16,8 @@
   min-width: 2.5rem;
   margin: auto;
   h4 {
-    color: $color-text-primary;
+    color: var(--color-text-primary);
     text-align: center;
-  }
-}
-
-.time-display-container.dark-mode {
-  h4 {
-    color: $color-text-primary-dark;
   }
 }
 
@@ -57,8 +51,8 @@ input[type="range"] {
 .input-track {
   background-image: linear-gradient(
     to right,
-    $color-text-primary,
-    $color-primary-main
+    var(--color-text-primary),
+    var(--color-primary-main)
   );
   width: 100%;
   height: 0.75rem;
@@ -67,16 +61,8 @@ input[type="range"] {
   overflow: hidden;
 }
 
-.input-track.dark-mode {
-  background-image: linear-gradient(
-    to right,
-    $color-text-primary-dark,
-    $color-primary-main-dark
-  );
-}
-
 .animate-track {
-  background: $color-background-elevation;
+  background: var(--color-background-elevation);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -84,10 +70,6 @@ input[type="range"] {
   left: 0;
   transform: translateX(0%);
   pointer-events: none;
-}
-
-.animate-track.dark-mode {
-  background: $color-background-elevation-dark;
 }
 
 @media screen and (max-width: 768px) {

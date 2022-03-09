@@ -1,51 +1,61 @@
 // Color palette
+// Defining CSS custom properties to be used for switching the theme
 
 // Light theme
 
-// Primary color
-$color-primary-main: rgba(254, 81, 89, 1);
-$color-primary-light: rgba(251, 96, 103, 0.22);
-$color-primary-highlight: rgba(251, 96, 103, 0.15);
+:root {
+  // Primary color
+  --color-primary-main: rgba(254, 81, 89, 1);
+  --color-primary-light: rgba(251, 96, 103, 0.22);
+  --color-primary-highlight: rgba(251, 96, 103, 0.15);
 
-// Text colors
-$color-text-primary: rgba(39, 49, 57, 1);
-$color-text-secondary: rgba(71, 97, 110, 1);
-$color-text-tertiary: rgba(119, 146, 160, 1);
-$color-text-invert: rgba(255, 255, 255, 1);
+  // Text colors
+  --color-text-primary: rgba(39, 49, 57, 1);
+  --color-text-secondary: rgba(71, 97, 110, 1);
+  --color-text-tertiary: rgba(119, 146, 160, 1);
+  --color-text-invert: rgba(255, 255, 255, 1);
 
-// Background colors
-$color-background-paper: rgba(255, 255, 255, 1);
-$color-background-elevation: rgba(228, 234, 237, 1);
-$color-background-elevation-2: rgba(239, 246, 249, 1);
+  // Background colors
+  --color-background-paper: rgba(255, 255, 255, 1);
+  --color-background-elevation: rgba(228, 234, 237, 1);
+  --color-background-elevation-2: rgba(239, 246, 249, 1);
 
-// Neutral colors
-$color-divider-solid: rgba(180, 187, 193, 1);
-$color-divider-transparent: rgba(180, 187, 193, 0.6);
+  // Neutral colors
+  --color-divider-solid: rgba(180, 187, 193, 1);
+  --color-divider-transparent: rgba(180, 187, 193, 0.6);
+
+  // Utility colors
+  --color-utility-transparent: rgba(255, 255, 255, 0);
+  --color-sidebar-inner-shadow: rgba(174, 174, 174, 0.25);
+}
 
 // Dark theme
 
-// Primary color - dark mode
-$color-primary-main-dark: rgba(254, 107, 112, 1);
-$color-primary-light-dark: rgba(210, 84, 89, 0.22);
-$color-primary-highlightv: rgba(210, 84, 89, 0.15);
+.dark-mode {
+  // Primary color
+  --color-primary-main: rgba(254, 107, 112, 1);
+  --color-primary-light: rgba(210, 84, 89, 0.22);
+  --color-primary-highlight: rgba(210, 84, 89, 0.15);
 
-// Text colors - dark mode
-$color-text-primary-dark: rgba(239, 246, 249, 1);
-$color-text-secondary-dark: rgba(170, 189, 198, 1);
-$color-text-tertiary-dark: rgba(93, 118, 132, 1);
-$color-text-invert-dark: rgba(16, 25, 32, 1);
+  // Text colors
+  --color-text-primary: rgba(239, 246, 249, 1);
+  --color-text-secondary: rgba(170, 189, 198, 1);
+  --color-text-tertiary: rgba(93, 118, 132, 1);
+  --color-text-invert: rgba(16, 25, 32, 1);
 
-// Background colors - dark mode
-$color-background-paper-dark: rgba(16, 25, 32, 1);
-$color-background-elevation-dark: rgba(36, 48, 63, 1);
-$color-background-elevation-2-dark: rgba(26, 35, 46, 1);
+  // Background colors
+  --color-background-paper: rgba(16, 25, 32, 1);
+  --color-background-elevation: rgba(36, 48, 63, 1);
+  --color-background-elevation-2: rgba(26, 35, 46, 1);
 
-// Neutral colors - dark mode
-$color-divider-solid-dark: rgba(67, 80, 90, 1);
-$color-divider-transparent-dark: rgba(67, 80, 90, 0.6);
+  // Neutral colors
+  --color-divider-solid: rgba(67, 80, 90, 1);
+  --color-divider-transparent: rgba(67, 80, 90, 0.4);
 
-// Utility colors
-$color-utility-transparent: rgba(255, 255, 255, 0);
+  // Utility colors
+  --color-utility-transparent: rgba(255, 255, 255, 0);
+  --color-sidebar-inner-shadow: rgba(1, 11, 19, 0.6);
+}
 
 // Typography
 
@@ -140,7 +150,7 @@ $spacing-24: calc($scaling-factor * 24); // 192px
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid $color-divider-solid;
+  border-bottom: 1px solid var(--color-divider-solid);
   padding: 0 $spacing-4;
 }
 
