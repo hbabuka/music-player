@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // Color palette
 // Defining CSS custom properties to be used for switching the theme
 
@@ -168,4 +170,39 @@ $library-width: 25rem;
 
 @mixin tranform-scale-on-hover {
   transform: scale(0.95);
+}
+
+// Media quereies mixin
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+@mixin media-query-for($size) {
+  @if $size == for-mobile {
+    @media screen and (max-width: map.get($breakpoints, sm)) {
+      @content;
+    }
+  } @else if $size == for-tablet-portrait {
+    @media screen and (min-width: map.get($breakpoints, md)) {
+      @content;
+    }
+  } @else if $size == for-tablet-landscape {
+    @media screen and (min-width: map.get($breakpoints, lg)) {
+      @content;
+    }
+  } @else if $size == for-desktop {
+    @media screen and (min-width: map.get($breakpoints, xl)) {
+      @content;
+    }
+  } @else if $size == for-desktop-large {
+    @media screen and (min-width: map.get($breakpoints, xxl)) {
+      @content;
+    }
+  }
 }
