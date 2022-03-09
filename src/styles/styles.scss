@@ -121,6 +121,10 @@ main {
   justify-content: space-around;
   width: 50rem;
   flex: 1;
+  @include media-query-for(mobile) {
+    width: 100vw;
+    justify-content: start;
+  }
 }
 
 // Partial styles

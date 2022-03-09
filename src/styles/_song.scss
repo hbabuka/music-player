@@ -56,12 +56,39 @@
       @include tranform-scale-on-hover;
     }
   }
-}
 
-@media screen and (max-width: 768px) {
-  .song-container {
+  @include media-query-for(mobile) {
+    flex-direction: column;
+    gap: 0;
+    height: 100%;
     img {
-      width: 60%;
+      width: 100vw;
+      border-radius: 0;
+    }
+    .song-info {
+      width: 100vw;
+      padding: $spacing-2;
+      justify-content: initial;
+      gap: $spacing-4;
+      .main-info {
+        gap: $spacing-1;
+        h1 {
+          @include text-style-h2;
+        }
+      }
+      .more-info {
+        flex-direction: row;
+        padding: $spacing-1-5;
+        gap: $spacing-1-5;
+        .key-value-container {
+          width: 50%;
+          min-width: 0;
+        }
+        h4 {
+          @include text-style-h5;
+          @include text-overflow;
+        }
+      }
     }
   }
 }
