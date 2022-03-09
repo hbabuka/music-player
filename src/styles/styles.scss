@@ -118,11 +118,9 @@ main {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 50rem;
   flex: 1;
-  margin-top: $spacing-24;
-  margin-bottom: $spacing-8;
 }
 
 // Partial styles
