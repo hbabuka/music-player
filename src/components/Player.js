@@ -72,6 +72,14 @@ const Player = ({
     });
   }
 
+  window.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowRight") {
+      return handleSkipTrack("skip-forward");
+    } else if (event.key === "ArrowLeft") {
+      return handleSkipTrack("skip-back");
+    }
+  });
+
   return (
     <div className="player-container">
       <div className="time-control">
@@ -85,6 +93,7 @@ const Player = ({
             max={songInfo.duration || 0}
             value={songInfo.currentTime}
             onChange={handleDragInput}
+            tabIndex="-1"
           />
           <div className="animate-track" style={trackAnim}></div>
         </div>
