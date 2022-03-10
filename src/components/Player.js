@@ -2,6 +2,7 @@ import React from "react";
 import {
   faCirclePause,
   faCirclePlay,
+  faRotateRight,
   faStepBackward,
   faStepForward,
 } from "@fortawesome/free-solid-svg-icons";
@@ -55,6 +56,15 @@ const Player = ({
     transform: `translateX(${songInfo.animationPercentage}%)`,
   };
 
+  const handleResetPlaylist = async () => {
+    await setCurrentSong(songs[0]);
+    if (isPlaying) {
+      audioRef.current.play();
+    }
+  };
+
+  // Adding key events for the player
+
   let audio = document.querySelector("audio");
   if (audio) {
     window.addEventListener("keydown", function (event) {
@@ -77,6 +87,8 @@ const Player = ({
       return handleSkipTrack("skip-forward");
     } else if (event.key === "ArrowLeft") {
       return handleSkipTrack("skip-back");
+    } else if (event.key === "r") {
+      return handleResetPlaylist();
     }
   });
 
@@ -102,31 +114,40 @@ const Player = ({
         </div>
       </div>
       <div className="player-buttons">
+        <div className="main-buttons">
+          <IconButton
+            icon={faStepBackward}
+            className="icon-button"
+            iconsize="2x"
+            data-tooltip="⬅️&nbsp; Play the previous song using the left arrow key"
+            onClick={() => handleSkipTrack("skip-back")}
+          />
+          <IconButton
+            icon={isPlaying ? faCirclePause : faCirclePlay}
+            className="icon-button play-button"
+            iconsize="4x"
+            data-tooltip="🚀&nbsp; Hit the Spacebar to play or pause your song"
+            onClick={handlePlaySong}
+            onKeyUp={(event) => {
+              if ([" "].includes(event.key)) {
+                return handlePlaySong;
+              }
+            }}
+          />
+          <IconButton
+            icon={faStepForward}
+            className="icon-button"
+            iconsize="2x"
+            data-tooltip="➡️&nbsp; Skip to the next song with your right arrow key"
+            onClick={() => handleSkipTrack("skip-forward")}
+          />
+        </div>
         <IconButton
-          icon={faStepBackward}
-          className="icon-button"
+          icon={faRotateRight}
+          className="icon-button reset-playlist-button"
           iconsize="2x"
-          data-tooltip="⬅️&nbsp; Play the previous song using the left arrow key"
-          onClick={() => handleSkipTrack("skip-back")}
-        />
-        <IconButton
-          icon={isPlaying ? faCirclePause : faCirclePlay}
-          className="icon-button play-button"
-          iconsize="4x"
-          data-tooltip="🚀&nbsp; Hit the Spacebar to play or pause your song"
-          onClick={handlePlaySong}
-          onKeyUp={(event) => {
-            if ([" "].includes(event.key)) {
-              return handlePlaySong;
-            }
-          }}
-        />
-        <IconButton
-          icon={faStepForward}
-          className="icon-button"
-          iconsize="2x"
-          data-tooltip="➡️&nbsp; Skip to the next song with your right arrow key"
-          onClick={() => handleSkipTrack("skip-forward")}
+          data-tooltip="🎧&nbsp; Press R to reset your playlist from the beginning"
+          onClick={handleResetPlaylist}
         />
       </div>
     </div>

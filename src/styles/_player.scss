@@ -23,12 +23,28 @@
 }
 
 .player-buttons {
-  display: flex;
-  align-items: center;
-  gap: $spacing-8;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  .reset-playlist-button {
+    grid-column-start: 6;
+    justify-self: end;
+    svg {
+      color: var(--color-text-tertiary);
+    }
+  }
   .icon-button {
     @include tooltip(attr(data-tooltip));
   }
+}
+
+.main-buttons {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: $spacing-8;
 }
 
 .play-button {
