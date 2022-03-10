@@ -159,7 +159,7 @@ const Player = ({
         <div className="auxiliary-buttons">
           <IconButton
             icon={faRotateLeft}
-            className="icon-button reset-song-button"
+            className="icon-button replay-song-button"
             iconsize="2x"
             data-tooltip="🎧&nbsp; Replay this song"
             onClick={handleResetSong}
