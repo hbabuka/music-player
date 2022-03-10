@@ -26,11 +26,13 @@
   display: flex;
   align-items: center;
   gap: $spacing-8;
+  .icon-button {
+    @include tooltip(attr(data-tooltip));
+  }
 }
 
 .play-button {
   padding-inline: 0;
-  border-radius: 50%;
 }
 
 input[type="range"] {

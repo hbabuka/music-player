@@ -179,6 +179,11 @@ $breakpoints: (
   }
 }
 
+// Styling constants
+
+$library-width: 25rem;
+$main-width: 50rem;
+
 // Component mixins
 
 @mixin header-style {
@@ -202,9 +207,34 @@ $breakpoints: (
   overflow: hidden;
 }
 
-// Styling constants
+@mixin tooltip($content) {
+  &:hover::after {
+    content: $content;
+    @include text-style-h4;
+    background-color: var(--color-primary-highlight);
+    color: var(--color-text-primary);
+    padding: $spacing-2;
+    border-radius: 0.5rem;
+    position: absolute;
+    width: 30rem;
+    right: $spacing-2;
+    bottom: $spacing-2;
 
-$library-width: 25rem;
+    @keyframes tooltip-appear {
+      0% {
+        opacity: 0;
+      }
+      70% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    animation: tooltip-appear 2s linear;
+  }
+}
 
 // Animations
 

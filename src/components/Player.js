@@ -106,12 +106,14 @@ const Player = ({
           icon={faStepBackward}
           className="icon-button"
           iconsize="2x"
+          data-tooltip="⬅️&nbsp; Play the previous song using the left arrow key"
           onClick={() => handleSkipTrack("skip-back")}
         />
         <IconButton
           icon={isPlaying ? faCirclePause : faCirclePlay}
           className="icon-button play-button"
           iconsize="4x"
+          data-tooltip="🚀&nbsp; Hit the Spacebar to play or pause your song"
           onClick={handlePlaySong}
           onKeyUp={(event) => {
             if ([" "].includes(event.key)) {
@@ -123,6 +125,7 @@ const Player = ({
           icon={faStepForward}
           className="icon-button"
           iconsize="2x"
+          data-tooltip="➡️&nbsp; Skip to the next song with your right arrow key"
           onClick={() => handleSkipTrack("skip-forward")}
         />
       </div>
