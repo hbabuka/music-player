@@ -27,11 +27,14 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   .reset-playlist-button {
+    grid-column-start: 1;
+    justify-self: start;
+  }
+  .auxiliary-buttons {
     grid-column-start: 6;
     justify-self: end;
-    svg {
-      color: var(--color-text-tertiary);
-    }
+    display: flex;
+    gap: $spacing-1;
   }
   .icon-button {
     @include tooltip(attr(data-tooltip));
@@ -111,11 +114,19 @@ input[type="range"] {
     @include text-style-h5;
   }
   .player-buttons {
+    display: flex;
+    justify-content: space-evenly;
     .fa-2x {
       font-size: 1.5rem;
     }
     .fa-4x {
       font-size: 3rem;
     }
+  }
+  .main-buttons {
+    gap: $spacing-4;
+  }
+  .reset-song-button {
+    display: none;
   }
 }

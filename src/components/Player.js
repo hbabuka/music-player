@@ -1,12 +1,14 @@
 import React from "react";
 import {
+  faBackwardFast,
   faCirclePause,
   faCirclePlay,
-  faRotateRight,
+  faRotateLeft,
+  faShuffle,
   faStepBackward,
   faStepForward,
 } from "@fortawesome/free-solid-svg-icons";
-import { getTime } from "../utils";
+import { getRandomNumber, getTime } from "../utils";
 import IconButton from "./shared/IconButton";
 
 const Player = ({
@@ -49,6 +51,9 @@ const Player = ({
       setCurrentSong(songs[(currentIndex - 1) % songs.length]);
       // songs[currentIndex === 0 ? songs.length - 1 : currentIndex - 1]
     }
+    if (direction === "shuffle") {
+      await setCurrentSong(songs[getRandomNumber(0, songs.length)]);
+    }
     if (isPlaying) audioRef.current.play();
   };
 
@@ -61,6 +66,10 @@ const Player = ({
     if (isPlaying) {
       audioRef.current.play();
     }
+  };
+
+  const handleResetSong = () => {
+    audioRef.current.currentTime = 0;
   };
 
   // Adding key events for the player
@@ -87,8 +96,6 @@ const Player = ({
       return handleSkipTrack("skip-forward");
     } else if (event.key === "ArrowLeft") {
       return handleSkipTrack("skip-back");
-    } else if (event.key === "r") {
-      return handleResetPlaylist();
     }
   });
 
@@ -114,6 +121,13 @@ const Player = ({
         </div>
       </div>
       <div className="player-buttons">
+        <IconButton
+          icon={faBackwardFast}
+          className="icon-button reset-playlist-button"
+          iconsize="2x"
+          data-tooltip="🪐&nbsp; Reset playlist from the beginning"
+          onClick={handleResetPlaylist}
+        />
         <div className="main-buttons">
           <IconButton
             icon={faStepBackward}
@@ -142,13 +156,22 @@ const Player = ({
             onClick={() => handleSkipTrack("skip-forward")}
           />
         </div>
-        <IconButton
-          icon={faRotateRight}
-          className="icon-button reset-playlist-button"
-          iconsize="2x"
-          data-tooltip="🎧&nbsp; Press R to reset your playlist from the beginning"
-          onClick={handleResetPlaylist}
-        />
+        <div className="auxiliary-buttons">
+          <IconButton
+            icon={faRotateLeft}
+            className="icon-button reset-song-button"
+            iconsize="2x"
+            data-tooltip="🎧&nbsp; Replay this song"
+            onClick={handleResetSong}
+          />
+          <IconButton
+            icon={faShuffle}
+            className="icon-button shuffle-button"
+            iconsize="2x"
+            data-tooltip="🎲&nbsp; Skip to a random song. Every day I'm shufflin'!"
+            onClick={() => handleSkipTrack("shuffle")}
+          />
+        </div>
       </div>
     </div>
   );
