@@ -8,7 +8,7 @@ import {
   faStepBackward,
   faStepForward,
 } from "@fortawesome/free-solid-svg-icons";
-import { getRandomNumber, getTime } from "../utils";
+import { getRandomElementFromArray, getTime } from "../utils";
 import IconButton from "./shared/IconButton";
 
 const Player = ({
@@ -52,7 +52,7 @@ const Player = ({
       // songs[currentIndex === 0 ? songs.length - 1 : currentIndex - 1]
     }
     if (direction === "shuffle") {
-      await setCurrentSong(songs[getRandomNumber(0, songs.length)]);
+      await setCurrentSong(songs[getRandomElementFromArray(songs)]);
     }
     if (isPlaying) audioRef.current.play();
   };
