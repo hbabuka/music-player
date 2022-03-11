@@ -37,7 +37,9 @@
     gap: $spacing-1;
   }
   .icon-button {
-    @include tooltip(attr(data-tooltip));
+    @include media-query-for(tablet-landscape) {
+      @include tooltip(attr(data-tooltip));
+    }
   }
 }
 
@@ -110,8 +112,11 @@ input[type="range"] {
   .time-control {
     gap: $spacing-1;
   }
-  .time-display-container h4 {
-    @include text-style-h5;
+  .time-display-container {
+    min-width: 2rem;
+    h4 {
+      @include text-style-p-small;
+    }
   }
   .player-buttons {
     display: flex;
