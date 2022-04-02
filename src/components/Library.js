@@ -17,6 +17,15 @@ const Library = ({
   const handleButtonClick = () => {
     setLibraryStatus(!libraryStatus);
   };
+
+  if (libraryStatus === true) {
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        setLibraryStatus(false);
+      }
+    });
+  }
+
   return (
     <aside
       className={`library-container ${libraryStatus ? "library-active" : ""}`}
