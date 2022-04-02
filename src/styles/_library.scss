@@ -8,6 +8,8 @@
   transform: translateX(-100%);
   transition: all 0.5s ease;
   width: $library-width;
+  display: flex;
+  flex-direction: column;
 
   @include media-query-for(mobile) {
     flex: 1 0 100%;
@@ -36,7 +38,7 @@
 }
 
 .library-songs {
-  height: 100%;
+  height: calc(100% - $library-header-width);
   overflow-y: scroll;
 }
 

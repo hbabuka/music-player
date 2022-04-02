@@ -183,11 +183,12 @@ $breakpoints: (
 
 $library-width: 25rem;
 $main-width: 50rem;
+$library-header-width: 6rem;
 
 // Component mixins
 
 @mixin header-style {
-  height: 6rem;
+  height: $library-header-width;
   width: 100%;
   display: flex;
   justify-content: space-between;

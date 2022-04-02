@@ -45,7 +45,7 @@ const Player = ({
     if (direction === "skip-back") {
       if (currentIndex === 0) {
         await setCurrentSong(songs[songs.length - 1]);
-        if (isPlaying) audioRef.current.pay();
+        if (isPlaying) audioRef.current.play();
         return;
       }
       setCurrentSong(songs[(currentIndex - 1) % songs.length]);
