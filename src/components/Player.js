@@ -48,7 +48,7 @@ const Player = ({
         if (isPlaying) audioRef.current.play();
         return;
       }
-      setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+      await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
       // songs[currentIndex === 0 ? songs.length - 1 : currentIndex - 1]
     }
     if (direction === "shuffle") {
@@ -56,6 +56,8 @@ const Player = ({
     }
     if (isPlaying) audioRef.current.play();
   };
+
+  console.log("isPlaying:", isPlaying);
 
   const trackAnim = {
     transform: `translateX(${songInfo.animationPercentage}%)`,
