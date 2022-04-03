@@ -7,9 +7,7 @@ import {
   faShuffle,
   faStepBackward,
   faStepForward,
-  faVolumeDown,
   faVolumeHigh,
-  faVolumeLow,
 } from "@fortawesome/free-solid-svg-icons";
 import { getRandomElementFromArray, getTime } from "../utils";
 import IconButton from "./shared/IconButton";
@@ -24,8 +22,6 @@ const Player = ({
   songs,
   setCurrentSong,
 }) => {
-  const [activeVolume, setActiveVolume] = useState(false);
-
   const handlePlaySong = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -185,13 +181,12 @@ const Player = ({
             data-tooltip="🎲&nbsp; Skip to a random song. Every day I'm shufflin'!"
             onClick={() => handleSkipTrack("shuffle")}
           />
-          <IconButton
-            icon={faVolumeHigh}
-            className="icon-button volume-button"
-            iconsize="2x"
-            onClick={() => setActiveVolume(!activeVolume)}
-          />
-          {activeVolume && (
+          <div className="volume-control">
+            <IconButton
+              icon={faVolumeHigh}
+              className="icon-button volume-button"
+              iconsize="2x"
+            />
             <div className="volume-input-wrapper">
               <input
                 className="volume-input"
@@ -203,7 +198,7 @@ const Player = ({
                 step="0.01"
               />
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
