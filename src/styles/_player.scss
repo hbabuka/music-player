@@ -40,6 +40,9 @@
   }
   .volume-button {
     padding-right: 0;
+    svg {
+      width: $spacing-5;
+    }
   }
   .reset-playlist-button {
     padding-left: 0;
@@ -153,13 +156,13 @@ input.volume-input[type="range"] {
   display: flex;
   .volume-input-wrapper {
     background-color: var(--color-background-paper);
-    height: 46px;
+    height: calc($spacing-4 + $spacing-1);
     display: flex;
     align-items: center;
     position: absolute;
-    transform: rotate(-90deg) translate(87px, -39px); // Positioned directly in the browser
+    transform: rotate(-90deg) translate(84px, -36px); // Positioned directly in the browser
     opacity: 0;
-    transition: all 0.6s ease;
+    transition: all 0.5s ease;
   }
   &:hover > .volume-input-wrapper,
   .volume-input-wrapper:hover {

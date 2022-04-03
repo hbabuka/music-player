@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   faBackwardFast,
   faCirclePause,
@@ -8,6 +8,8 @@ import {
   faStepBackward,
   faStepForward,
   faVolumeHigh,
+  faVolumeLow,
+  faVolumeMute,
 } from "@fortawesome/free-solid-svg-icons";
 import { getRandomElementFromArray, getTime } from "../utils";
 import IconButton from "./shared/IconButton";
@@ -104,6 +106,13 @@ const Player = ({
     let value = e.target.value;
     audioRef.current.volume = value;
     setSongInfo({ ...songInfo, volume: value });
+    if (audio.muted) {
+      audio.muted = false;
+    }
+  };
+
+  const muteVolume = () => {
+    audio.muted = !audio.muted;
   };
 
   return (
@@ -183,16 +192,23 @@ const Player = ({
           />
           <div className="volume-control">
             <IconButton
-              icon={faVolumeHigh}
+              icon={
+                songInfo.volume === 0 || audio.muted === true
+                  ? faVolumeMute
+                  : songInfo.volume > "0.6"
+                  ? faVolumeHigh
+                  : faVolumeLow
+              }
               className="icon-button volume-button"
               iconsize="2x"
+              onClick={muteVolume}
             />
             <div className="volume-input-wrapper">
               <input
                 className="volume-input"
                 type="range"
                 onChange={changeVolume}
-                value={songInfo.volume}
+                value={isPlaying && audio.muted ? 0 : songInfo.volume}
                 min="0"
                 max="1"
                 step="0.01"
