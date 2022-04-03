@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   faBackwardFast,
   faCirclePause,
@@ -7,6 +7,9 @@ import {
   faShuffle,
   faStepBackward,
   faStepForward,
+  faVolumeDown,
+  faVolumeHigh,
+  faVolumeLow,
 } from "@fortawesome/free-solid-svg-icons";
 import { getRandomElementFromArray, getTime } from "../utils";
 import IconButton from "./shared/IconButton";
@@ -21,6 +24,8 @@ const Player = ({
   songs,
   setCurrentSong,
 }) => {
+  const [activeVolume, setActiveVolume] = useState(false);
+
   const handlePlaySong = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -56,8 +61,6 @@ const Player = ({
     }
     if (isPlaying) audioRef.current.play();
   };
-
-  console.log("isPlaying:", isPlaying);
 
   const trackAnim = {
     transform: `translateX(${songInfo.animationPercentage}%)`,
@@ -101,6 +104,12 @@ const Player = ({
     }
   });
 
+  const changeVolume = (e) => {
+    let value = e.target.value;
+    audioRef.current.volume = value;
+    setSongInfo({ ...songInfo, volume: value });
+  };
+
   return (
     <div className="player-container">
       <div className="time-control">
@@ -109,6 +118,7 @@ const Player = ({
         </div>
         <div className="input-track">
           <input
+            className="player-input"
             type="range"
             min="0"
             max={songInfo.duration || 0}
@@ -123,13 +133,22 @@ const Player = ({
         </div>
       </div>
       <div className="player-buttons">
-        <IconButton
-          icon={faBackwardFast}
-          className="icon-button reset-playlist-button"
-          iconsize="2x"
-          data-tooltip="🪐&nbsp; Reset playlist from the beginning"
-          onClick={handleResetPlaylist}
-        />
+        <div className="auxiliary-buttons ab-start">
+          <IconButton
+            icon={faBackwardFast}
+            className="icon-button reset-playlist-button"
+            iconsize="2x"
+            data-tooltip="🪐&nbsp; Reset playlist from the beginning"
+            onClick={handleResetPlaylist}
+          />
+          <IconButton
+            icon={faRotateLeft}
+            className="icon-button replay-song-button"
+            iconsize="2x"
+            data-tooltip="🎧&nbsp; Replay this song"
+            onClick={handleResetSong}
+          />
+        </div>
         <div className="main-buttons">
           <IconButton
             icon={faStepBackward}
@@ -158,14 +177,7 @@ const Player = ({
             onClick={() => handleSkipTrack("skip-forward")}
           />
         </div>
-        <div className="auxiliary-buttons">
-          <IconButton
-            icon={faRotateLeft}
-            className="icon-button replay-song-button"
-            iconsize="2x"
-            data-tooltip="🎧&nbsp; Replay this song"
-            onClick={handleResetSong}
-          />
+        <div className="auxiliary-buttons ab-end">
           <IconButton
             icon={faShuffle}
             className="icon-button shuffle-button"
@@ -173,6 +185,25 @@ const Player = ({
             data-tooltip="🎲&nbsp; Skip to a random song. Every day I'm shufflin'!"
             onClick={() => handleSkipTrack("shuffle")}
           />
+          <IconButton
+            icon={faVolumeHigh}
+            className="icon-button volume-button"
+            iconsize="2x"
+            onClick={() => setActiveVolume(!activeVolume)}
+          />
+          {activeVolume && (
+            <div className="volume-input-wrapper">
+              <input
+                className="volume-input"
+                type="range"
+                onChange={changeVolume}
+                value={songInfo.volume}
+                min="0"
+                max="1"
+                step="0.01"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -127,11 +127,11 @@ main {
   }
 }
 
+// Shared component styles
+@import "./shared/buttons.scss";
+
 // Partial styles
 @import "./player";
 @import "./song";
 @import "./library";
 @import "./header";
-
-// Shared component styles
-@import "./shared/buttons.scss";

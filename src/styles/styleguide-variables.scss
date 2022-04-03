@@ -29,6 +29,13 @@
   // Utility colors
   --color-utility-transparent: rgba(255, 255, 255, 0);
   --color-sidebar-inner-shadow: rgba(174, 174, 174, 0.25);
+
+  // Gradients
+  --gradient-primary-colors: linear-gradient(
+    to right,
+    var(--color-text-primary),
+    var(--color-primary-main)
+  );
 }
 
 // Dark theme
@@ -57,6 +64,13 @@
   // Utility colors
   --color-utility-transparent: rgba(255, 255, 255, 0);
   --color-sidebar-inner-shadow: rgba(1, 11, 19, 0.6);
+
+  // Gradients
+  --gradient-primary-colors: linear-gradient(
+    to right,
+    var(--color-text-primary),
+    var(--color-primary-main)
+  );
 }
 
 // Typography
