@@ -112,7 +112,9 @@ const Player = ({
   };
 
   const muteVolume = () => {
-    audio.muted = !audio.muted;
+    if (isPlaying) {
+      audioRef.current.muted = !audioRef.current.muted;
+    }
   };
 
   return (
@@ -208,7 +210,9 @@ const Player = ({
                 className="volume-input"
                 type="range"
                 onChange={changeVolume}
-                value={isPlaying && audio.muted ? 0 : songInfo.volume}
+                value={
+                  isPlaying && audioRef.current.muted ? "0" : songInfo.volume
+                }
                 min="0"
                 max="1"
                 step="0.01"
