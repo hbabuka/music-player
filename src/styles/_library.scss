@@ -102,6 +102,10 @@ img.song-cover {
   svg {
     width: auto;
   }
+  // Current song paused icon
+  .fa-circle {
+    @include show-up-animation;
+  }
 }
 
 @include media-query-for(mobile) {
