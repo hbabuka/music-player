@@ -108,6 +108,10 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 100%);
+  background-color: var(--dominant-color, rgb(255, 255, 255));
+  background-blend-mode: lighten;
+  background-attachment: fixed;
 }
 
 .page-content-full-width {

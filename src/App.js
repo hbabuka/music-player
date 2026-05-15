@@ -6,6 +6,7 @@ import "./styles/styles.scss";
 import data, { fetchMusicList } from "./data";
 import { useRef } from "react";
 import Header from "./components/Header";
+import { getDominantColor } from "./utils";
 
 function App() {
   const initialSongs = data();
@@ -13,6 +14,10 @@ function App() {
   const [songs, setSongs] = useState(initialSongs);
   const [currentSong, setCurrentSong] = useState(initialSongs[0] || null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [dominantColor, setDominantColor] = useState({
+    rgb: "rgb(255, 255, 255)",
+    values: "255 255 255",
+  });
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
@@ -45,6 +50,16 @@ function App() {
       isActive = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!currentSong || !currentSong.cover) {
+      return;
+    }
+
+    getDominantColor(currentSong.cover).then((color) => {
+      setDominantColor(color);
+    });
+  }, [currentSong]);
 
   const handleTimeUpdate = (e) => {
     const current = e.target.currentTime;
@@ -86,7 +101,12 @@ function App() {
         setLibraryStatus={setLibraryStatus}
         songInfo={songInfo}
       />
-      <div className={`page-content ${libraryStatus ? "" : "page-content-full-width"}`}>
+      <div
+        className={`page-content ${libraryStatus ? "" : "page-content-full-width"}`}
+        style={{
+          "--dominant-color": dominantColor?.rgb || "rgb(255, 255, 255)",
+        }}
+      >
         <Header libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
         <main>
           {currentSong ? (
