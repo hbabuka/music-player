@@ -3,13 +3,7 @@ import React from "react";
 import { faPlay, faCircle } from "@fortawesome/free-solid-svg-icons";
 import { PlayingAnimation } from "./shared/PlayingAnimation";
 
-const LibrarySong = ({
-  song,
-  setCurrentSong,
-  audioRef,
-  isPlaying,
-  currentSong,
-}) => {
+const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying, currentSong }) => {
   const handleSelectSong = async () => {
     await setCurrentSong(song);
     if (isPlaying) {
@@ -19,9 +13,7 @@ const LibrarySong = ({
 
   return (
     <div
-      className={`library-song ${
-        song.id === currentSong.id ? "selected-song" : ""
-      }`}
+      className={`library-song ${song.id === currentSong?.id ? "selected-song" : ""}`}
       onClick={handleSelectSong}
     >
       <img className="song-cover" src={song.cover} alt={song.name} />
@@ -29,7 +21,7 @@ const LibrarySong = ({
         <h4>{song.name}</h4>
         <h5>{song.artist}</h5>
       </div>
-      {song.id === currentSong.id ? (
+      {song.id === currentSong?.id ? (
         isPlaying ? (
           <PlayingAnimation />
         ) : (
