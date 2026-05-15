@@ -102,7 +102,10 @@ function App() {
               />
             </>
           ) : (
-            <p>Loading songs...</p>
+            <div className="loading-container">
+              <h1>Music is</h1>
+              <h3>LOADING...</h3>
+            </div>
           )}
         </main>
       </div>
