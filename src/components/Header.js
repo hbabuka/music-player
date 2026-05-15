@@ -1,6 +1,6 @@
 import React from "react";
 import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
-import { ReactComponent as Logo } from "../assets/logo.svg";
+import { ReactComponent as Logo } from "../assets/Logo.svg";
 import IconButton from "./shared/IconButton";
 import Button from "./shared/Button";
 import ThemeToggle from "./ThemeToggle";
