@@ -60,6 +60,7 @@ function App() {
       volume: e.target.volume,
     });
   };
+
   const handleEndSong = async () => {
     if (!currentSong || songs.length === 0) {
       return;
@@ -70,6 +71,7 @@ function App() {
     if (isPlaying) audioRef.current.play();
     return;
   };
+
   return (
     <div className="App">
       <Library
@@ -103,8 +105,8 @@ function App() {
             </>
           ) : (
             <div className="loading-container">
-              <h1>Music is</h1>
-              <h3>LOADING...</h3>
+              <h1>Loading...</h1>
+              <h3>Cool music is on the way!</h3>
             </div>
           )}
         </main>
