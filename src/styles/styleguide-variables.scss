@@ -36,6 +36,11 @@
     var(--color-text-primary),
     var(--color-primary-main)
   );
+  --gradient-page-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.75) 100%
+  );
 }
 
 // Dark theme
@@ -71,6 +76,7 @@
     var(--color-text-primary),
     var(--color-primary-main)
   );
+  --gradient-page-bg: linear-gradient(135deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
 
 // Typography
