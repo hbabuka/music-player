@@ -14,10 +14,7 @@ function App() {
   const [songs, setSongs] = useState(initialSongs);
   const [currentSong, setCurrentSong] = useState(initialSongs[0] || null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [dominantColor, setDominantColor] = useState({
-    rgb: "rgb(255, 255, 255)",
-    values: "255 255 255",
-  });
+  const [dominantColor, setDominantColor] = useState(null);
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
@@ -53,6 +50,7 @@ function App() {
 
   useEffect(() => {
     if (!currentSong || !currentSong.cover) {
+      setDominantColor(null);
       return;
     }
 
@@ -103,9 +101,11 @@ function App() {
       />
       <div
         className={`page-content ${libraryStatus ? "" : "page-content-full-width"}`}
-        style={{
-          "--dominant-color": dominantColor?.rgb || "rgb(255, 255, 255)",
-        }}
+        style={
+          dominantColor
+            ? { "--dominant-color": dominantColor.rgb }
+            : { background: "var(--color-background-paper)" }
+        }
       >
         <Header libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
         <main>
