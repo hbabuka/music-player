@@ -1,14 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { faPlay, faCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faCircle, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { PlayingAnimation } from "./shared/PlayingAnimation";
 
-const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying, currentSong }) => {
+const LibrarySong = ({
+  song,
+  setCurrentSong,
+  audioRef,
+  isPlaying,
+  currentSong,
+  onToggleFavorite,
+}) => {
   const handleSelectSong = async () => {
     await setCurrentSong(song);
     if (isPlaying) {
       audioRef.current.play();
     }
+  };
+
+  const handleFavoriteClick = (event) => {
+    event.stopPropagation();
+    onToggleFavorite(song.id);
   };
 
   return (
@@ -21,15 +33,25 @@ const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying, currentSong })
         <h4>{song.name}</h4>
         <h5>{song.artist}</h5>
       </div>
-      {song.id === currentSong?.id ? (
-        isPlaying ? (
-          <PlayingAnimation />
+      <div className="library-song-status">
+        {song.id === currentSong?.id ? (
+          isPlaying ? (
+            <PlayingAnimation />
+          ) : (
+            <FontAwesomeIcon icon={faCircle} />
+          )
         ) : (
-          <FontAwesomeIcon icon={faCircle} />
-        )
-      ) : (
-        <FontAwesomeIcon icon={faPlay} />
-      )}
+          <FontAwesomeIcon icon={faPlay} />
+        )}
+      </div>
+      <button
+        className={`favorite-toggle ${song.favorite ? "favorite-active" : ""}`}
+        onClick={handleFavoriteClick}
+        aria-label={song.favorite ? "Remove from favorites" : "Add to favorites"}
+        type="button"
+      >
+        <FontAwesomeIcon icon={faHeart} />
+      </button>
     </div>
   );
 };

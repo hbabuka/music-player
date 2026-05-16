@@ -50,16 +50,19 @@
   padding: $spacing-2 $spacing-4;
   transition: background-color 0.5s ease;
   gap: $spacing-2;
-  svg {
-    width: 0;
-    transition: all 0.5s ease;
+  .library-song-status svg {
+    opacity: 0;
+    transform: scale(0.95);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
   }
   &:hover {
     cursor: pointer;
     background-color: var(--color-background-elevation-2);
-    svg {
-      width: auto;
-      margin-right: $spacing-1;
+    .library-song-status svg {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }
@@ -74,7 +77,8 @@ img.song-cover {
   flex-direction: column;
   gap: $spacing-0-5;
   min-width: 0;
-  width: 100%;
+  width: auto;
+  flex: 1;
   flex-shrink: 1;
   h4 {
     color: var(--color-text-primary);
@@ -86,8 +90,34 @@ img.song-cover {
   }
 }
 
-.library-song svg {
+.library-song-status svg {
   color: var(--color-text-primary);
+}
+
+.library-song-status {
+  width: 1.5rem;
+  flex: 0 0 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.favorite-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary);
+  transition: color 0.3s ease;
+  svg {
+    width: auto;
+    margin-right: 0;
+  }
+  &:hover {
+    color: var(--color-primary-main);
+  }
+}
+
+.favorite-active {
+  color: var(--color-primary-main);
 }
 
 .selected-song {
@@ -95,12 +125,13 @@ img.song-cover {
   &:hover {
     background-color: var(--color-primary-light);
   }
-  svg,
+  .library-song-status svg,
   h4 {
     color: var(--color-primary-main);
   }
-  svg {
-    width: auto;
+  .library-song-status svg {
+    opacity: 1;
+    transform: scale(1);
   }
   // Current song paused icon
   .fa-circle {

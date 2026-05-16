@@ -6,7 +6,14 @@ import "./styles/styles.scss";
 import data, { fetchMusicList } from "./data";
 import { useRef } from "react";
 import Header from "./components/Header";
-import { getDominantColor } from "./utils";
+import {
+  applyFavoritesToSongs,
+  getDocumentTitle,
+  getDominantColor,
+  getStoredFavoriteIds,
+  persistFavoriteIds,
+} from "./utils";
+import { DEFAULT_PAGE_BACKGROUND } from "./constants";
 
 function App() {
   const initialSongs = data();
@@ -34,8 +41,9 @@ function App() {
           return;
         }
 
-        setSongs(remoteSongs);
-        setCurrentSong(remoteSongs[0]);
+        const songsWithFavorites = applyFavoritesToSongs(remoteSongs, getStoredFavoriteIds());
+        setSongs(songsWithFavorites);
+        setCurrentSong(songsWithFavorites[0]);
       } catch (error) {
         console.error("Could not load songs from iTunes API.", error);
       }
@@ -49,6 +57,14 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (!songs.length) {
+      return;
+    }
+
+    persistFavoriteIds(songs);
+  }, [songs]);
+
+  useEffect(() => {
     if (!currentSong || !currentSong.cover) {
       setDominantColor(null);
       return;
@@ -60,12 +76,7 @@ function App() {
   }, [currentSong]);
 
   useEffect(() => {
-    if (!currentSong || !isPlaying) {
-      document.title = "dPlaylist";
-      return;
-    }
-
-    document.title = `♪ ${currentSong.name} — ${currentSong.artist}`;
+    document.title = getDocumentTitle(currentSong, isPlaying);
   }, [currentSong, isPlaying]);
 
   const handleTimeUpdate = (e) => {
@@ -94,6 +105,30 @@ function App() {
     return;
   };
 
+  const handleToggleFavorite = (songId) => {
+    setSongs((previousSongs) =>
+      previousSongs.map((song) =>
+        song.id === songId
+          ? {
+              ...song,
+              favorite: !song.favorite,
+            }
+          : song
+      )
+    );
+
+    setCurrentSong((previousSong) => {
+      if (!previousSong || previousSong.id !== songId) {
+        return previousSong;
+      }
+
+      return {
+        ...previousSong,
+        favorite: !previousSong.favorite,
+      };
+    });
+  };
+
   return (
     <div className="App">
       <Library
@@ -107,13 +142,14 @@ function App() {
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
         songInfo={songInfo}
+        onToggleFavorite={handleToggleFavorite}
       />
       <div
         className={`page-content ${libraryStatus ? "" : "page-content-full-width"}`}
         style={
           dominantColor
             ? { "--dominant-color": dominantColor.rgb }
-            : { background: "var(--color-background-paper)" }
+            : { background: DEFAULT_PAGE_BACKGROUND }
         }
       >
         <Header libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />

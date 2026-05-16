@@ -1,9 +1,43 @@
+import { APP_TITLE, FAVORITES_STORAGE_KEY, PLAYING_TITLE_NOTE } from "./constants";
+
 export const getTime = (time) => {
   return Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2);
 };
 
 export const getRandomElementFromArray = (arrayName) => {
   return Math.floor(Math.random() * arrayName.length);
+};
+
+export const getStoredFavoriteIds = () => {
+  try {
+    const storedFavorites = localStorage.getItem(FAVORITES_STORAGE_KEY);
+    const favoriteIds = storedFavorites ? JSON.parse(storedFavorites) : [];
+    return Array.isArray(favoriteIds) ? favoriteIds : [];
+  } catch (error) {
+    return [];
+  }
+};
+
+export const applyFavoritesToSongs = (songsToUpdate, favoriteIds) => {
+  const favoriteIdSet = new Set(favoriteIds);
+
+  return songsToUpdate.map((song) => ({
+    ...song,
+    favorite: favoriteIdSet.has(song.id),
+  }));
+};
+
+export const persistFavoriteIds = (songs) => {
+  const favoriteIds = songs.filter((song) => song.favorite).map((song) => song.id);
+  localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favoriteIds));
+};
+
+export const getDocumentTitle = (currentSong, isPlaying) => {
+  if (!currentSong || !isPlaying) {
+    return APP_TITLE;
+  }
+
+  return `${PLAYING_TITLE_NOTE} ${currentSong.name} — ${currentSong.artist}`;
 };
 
 export const getDominantColor = (imageUrl) => {

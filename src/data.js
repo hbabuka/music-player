@@ -1,7 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-
-const ITUNES_API_URL =
-  "https://itunes.apple.com/search?term=lofi%20hip%20hop&media=music&entity=song&limit=25";
+import { ITUNES_API_URL } from "./constants";
 
 const mapTrackToSong = (track) => ({
   name: track.trackName,
@@ -11,6 +9,7 @@ const mapTrackToSong = (track) => ({
   collection: track.collectionName || "Single",
   id: track.trackId ? String(track.trackId) : uuidv4(),
   audio: track.previewUrl,
+  favorite: false,
 });
 
 export async function fetchMusicList() {

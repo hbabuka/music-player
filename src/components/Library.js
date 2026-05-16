@@ -13,6 +13,7 @@ const Library = ({
   libraryStatus,
   setLibraryStatus,
   songInfo,
+  onToggleFavorite,
 }) => {
   const handleButtonClick = () => {
     setLibraryStatus(!libraryStatus);
@@ -27,9 +28,7 @@ const Library = ({
   }
 
   return (
-    <aside
-      className={`library-container ${libraryStatus ? "library-active" : ""}`}
-    >
+    <aside className={`library-container ${libraryStatus ? "library-active" : ""}`}>
       <div className="library-header">
         <div className="library-info">
           <h3>My Library</h3>
@@ -54,6 +53,7 @@ const Library = ({
             currentSong={currentSong}
             key={song.id}
             songInfo={songInfo}
+            onToggleFavorite={onToggleFavorite}
           />
         ))}
       </div>
