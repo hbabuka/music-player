@@ -1,15 +1,24 @@
-# Music Player
+# dPlaylist
 
-A modern, feature-rich music player application built with React.
+A modern music player application built with React to showcase proficiency in React development, visual design, and responsive web design. The project emphasizes interaction feedback and seamless user experience across all devices.
+
+## About
+
+dPlaylist is an individual project demonstrating expertise in:
+- **React** - Component-based architecture and state management
+- **Sass** - Custom style guide and reusable UI components with a CSS preprocessor
+- **Visual Design** - Thoughtful UI/UX with emphasis on user interaction feedback
+- **Responsive Design** - Optimized experience for desktop and mobile screens
 
 ## Features
 
-- 🎵 Play/pause/skip controls
-- 🔊 Volume control
+- 🎵 Play/pause/skip controls with intuitive feedback
+- 🔊 Volume control with visual feedback
 - ⏱️ Progress bar with seek functionality
 - 📋 Playlist management
-- 🎨 Modern, responsive UI
+- 🎨 Modern, responsive UI with smooth interactions
 - ⌨️ Keyboard shortcuts support
+- 📱 Fully responsive design for desktop and mobile
 
 ## Getting Started
 
@@ -64,9 +73,14 @@ If you need full control over the build configuration, you can eject. This will 
 
 ## Technologies Used
 
-- React
-- Create React App
-- CSS3
+- **React** - UI library
+- **Sass** - CSS preprocessor for styling and component design system
+- **Font Awesome** - Icon library
+- **Create React App** - Development environment
+
+## Project Structure
+
+The project includes custom UI components and a comprehensive style guide implemented with Sass, ensuring consistent design patterns and maintainability throughout the application.
 
 ## Contributing
 
