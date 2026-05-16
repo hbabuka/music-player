@@ -5,6 +5,7 @@ A modern music player application built with React to showcase proficiency in Re
 ## About
 
 dPlaylist is an individual project demonstrating expertise in:
+
 - **React** - Component-based architecture and state management
 - **Sass** - Custom style guide and reusable UI components with a CSS preprocessor
 - **Visual Design** - Thoughtful UI/UX with emphasis on user interaction feedback
@@ -16,6 +17,8 @@ dPlaylist is an individual project demonstrating expertise in:
 - 🔊 Volume control with visual feedback
 - ⏱️ Progress bar with seek functionality
 - 📋 Playlist management
+- ❤️ Favorites support with per-song heart toggle in the library
+- 🏷️ Dynamic browser tab title (`dPlaylist` when idle, `♪ Song — Artist` while playing)
 - 🎨 Modern, responsive UI with smooth interactions
 - ⌨️ Keyboard shortcuts support
 - 📱 Fully responsive design for desktop and mobile
@@ -30,17 +33,20 @@ dPlaylist is an individual project demonstrating expertise in:
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/hbabuka/music-player.git
 cd music-player
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm start
 ```
@@ -50,15 +56,19 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 ## Available Scripts
 
 ### `npm start`
+
 Runs the app in development mode. The page will reload when you make changes.
 
 ### `npm test`
+
 Launches the test runner in interactive watch mode.
 
 ### `npm run build`
+
 Builds the app for production to the `build` folder. The build is optimized and ready for deployment.
 
 ### `npm run eject`
+
 **Note: this is a one-way operation.**
 
 If you need full control over the build configuration, you can eject. This will expose all configuration files.
@@ -70,6 +80,8 @@ If you need full control over the build configuration, you can eject. This will 
 3. Adjust volume with the volume slider
 4. Skip to previous/next tracks
 5. Drag the progress bar to seek to a specific time
+6. Click the heart icon in the library to add/remove favorites (saved automatically)
+7. Watch the browser tab title update to show the currently playing song
 
 ## Technologies Used
 
