@@ -59,6 +59,15 @@ function App() {
     });
   }, [currentSong]);
 
+  useEffect(() => {
+    if (!currentSong || !isPlaying) {
+      document.title = "dPlaylist";
+      return;
+    }
+
+    document.title = `♪ ${currentSong.name} — ${currentSong.artist}`;
+  }, [currentSong, isPlaying]);
+
   const handleTimeUpdate = (e) => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
