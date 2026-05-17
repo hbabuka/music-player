@@ -3,6 +3,8 @@
 .library-container {
   flex: 1 0 $library-width;
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background-color: var(--color-background-paper);
   box-shadow: -5px 0px 15px 0px var(--color-sidebar-inner-shadow) inset;
   transform: translateX(-100%);
@@ -13,7 +15,7 @@
 
   @include media-query-for(mobile) {
     flex: 1 0 100%;
-    width: 100vw;
+    width: 100%;
   }
 }
 
@@ -38,8 +40,10 @@
 }
 
 .library-songs {
-  height: calc(100% - $library-header-width);
+  flex: 1;
+  min-height: 0;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .recently-played-section {
