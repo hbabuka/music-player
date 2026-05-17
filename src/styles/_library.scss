@@ -159,6 +159,10 @@ img.song-cover {
   &:hover {
     color: var(--color-text-primary);
   }
+  &.favorite-active,
+  &.favorite-active:hover {
+    color: var(--color-primary-main);
+  }
 }
 
 .favorite-active {
