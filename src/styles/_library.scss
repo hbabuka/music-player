@@ -42,6 +42,47 @@
   overflow-y: scroll;
 }
 
+.recently-played-section {
+  padding: $spacing-2 $spacing-4 $spacing-1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+  h5 {
+    color: var(--color-text-secondary);
+  }
+  button {
+    padding: 0;
+  }
+}
+
+.recently-played-list {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+}
+
+.recently-played-item {
+  min-width: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-0-5;
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+  img.song-cover {
+    width: 3rem;
+    border-radius: 0.5rem;
+  }
+  span {
+    @include text-style-p-small;
+    max-width: 4.5rem;
+    @include text-overflow;
+  }
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}
+
 // Library song styles
 
 .library-song {
@@ -140,6 +181,9 @@ img.song-cover {
 }
 
 @include media-query-for(mobile) {
+  .recently-played-section {
+    padding: $spacing-2 $spacing-2 $spacing-1;
+  }
   .library-song {
     padding: $spacing-2;
   }

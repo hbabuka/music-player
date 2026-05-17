@@ -8,12 +8,16 @@ import { useRef } from "react";
 import Header from "./components/Header";
 import {
   applyFavoritesToSongs,
+  getRecentSongs,
   getDocumentTitle,
   getDominantColor,
   getStoredFavoriteIds,
+  getStoredRecentSongIds,
   persistFavoriteIds,
+  persistRecentSongIds,
+  updateRecentSongIds,
 } from "./utils";
-import { DEFAULT_PAGE_BACKGROUND } from "./constants";
+import { DEFAULT_PAGE_BACKGROUND, MAX_RECENT_SONGS } from "./constants";
 
 function App() {
   const initialSongs = data();
@@ -22,6 +26,7 @@ function App() {
   const [currentSong, setCurrentSong] = useState(initialSongs[0] || null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [dominantColor, setDominantColor] = useState(null);
+  const [recentSongIds, setRecentSongIds] = useState(getStoredRecentSongIds);
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
@@ -29,6 +34,7 @@ function App() {
     volume: 0,
   });
   const [libraryStatus, setLibraryStatus] = useState(false);
+  const recentSongs = getRecentSongs(songs, recentSongIds);
 
   useEffect(() => {
     let isActive = true;
@@ -65,6 +71,10 @@ function App() {
   }, [songs]);
 
   useEffect(() => {
+    persistRecentSongIds(recentSongIds);
+  }, [recentSongIds]);
+
+  useEffect(() => {
     if (!currentSong || !currentSong.cover) {
       setDominantColor(null);
       return;
@@ -77,6 +87,16 @@ function App() {
 
   useEffect(() => {
     document.title = getDocumentTitle(currentSong, isPlaying);
+  }, [currentSong, isPlaying]);
+
+  useEffect(() => {
+    if (!isPlaying || !currentSong) {
+      return;
+    }
+
+    setRecentSongIds((previousRecentSongIds) =>
+      updateRecentSongIds(previousRecentSongIds, currentSong.id, MAX_RECENT_SONGS)
+    );
   }, [currentSong, isPlaying]);
 
   const handleTimeUpdate = (e) => {
@@ -143,6 +163,7 @@ function App() {
         setLibraryStatus={setLibraryStatus}
         songInfo={songInfo}
         onToggleFavorite={handleToggleFavorite}
+        recentSongs={recentSongs}
       />
       <div
         className={`page-content ${libraryStatus ? "" : "page-content-full-width"}`}

@@ -1,5 +1,6 @@
 import React from "react";
 import LibrarySong from "./LibrarySong";
+import RecentlyPlayed from "./RecentlyPlayed";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import IconButton from "./shared/IconButton";
 
@@ -14,6 +15,7 @@ const Library = ({
   setLibraryStatus,
   songInfo,
   onToggleFavorite,
+  recentSongs,
 }) => {
   const handleButtonClick = () => {
     setLibraryStatus(!libraryStatus);
@@ -42,6 +44,12 @@ const Library = ({
         />
       </div>
       <div className="library-songs">
+        <RecentlyPlayed
+          recentSongs={recentSongs}
+          setCurrentSong={setCurrentSong}
+          isPlaying={isPlaying}
+          audioRef={audioRef}
+        />
         {songs.map((song) => (
           <LibrarySong
             song={song}

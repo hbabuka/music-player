@@ -1,4 +1,9 @@
-import { APP_TITLE, FAVORITES_STORAGE_KEY, PLAYING_TITLE_NOTE } from "./constants";
+import {
+  APP_TITLE,
+  FAVORITES_STORAGE_KEY,
+  PLAYING_TITLE_NOTE,
+  RECENT_SONGS_STORAGE_KEY,
+} from "./constants";
 
 export const getTime = (time) => {
   return Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2);
@@ -30,6 +35,37 @@ export const applyFavoritesToSongs = (songsToUpdate, favoriteIds) => {
 export const persistFavoriteIds = (songs) => {
   const favoriteIds = songs.filter((song) => song.favorite).map((song) => song.id);
   localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favoriteIds));
+};
+
+export const getStoredRecentSongIds = () => {
+  try {
+    const storedRecentSongs = localStorage.getItem(RECENT_SONGS_STORAGE_KEY);
+    const recentSongIds = storedRecentSongs ? JSON.parse(storedRecentSongs) : [];
+    return Array.isArray(recentSongIds) ? recentSongIds : [];
+  } catch (error) {
+    return [];
+  }
+};
+
+export const updateRecentSongIds = (previousRecentSongIds, songId, maxRecentSongs) => {
+  if (!songId) {
+    return previousRecentSongIds;
+  }
+
+  const withoutCurrentSong = previousRecentSongIds.filter(
+    (recentSongId) => recentSongId !== songId
+  );
+  return [songId, ...withoutCurrentSong].slice(0, maxRecentSongs);
+};
+
+export const persistRecentSongIds = (recentSongIds) => {
+  localStorage.setItem(RECENT_SONGS_STORAGE_KEY, JSON.stringify(recentSongIds));
+};
+
+export const getRecentSongs = (songs, recentSongIds) => {
+  const songsById = new Map(songs.map((song) => [song.id, song]));
+
+  return recentSongIds.map((recentSongId) => songsById.get(recentSongId)).filter(Boolean);
 };
 
 export const getDocumentTitle = (currentSong, isPlaying) => {

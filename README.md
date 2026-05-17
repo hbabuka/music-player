@@ -18,6 +18,7 @@ dPlaylist is an individual project demonstrating expertise in:
 - ⏱️ Progress bar with seek functionality
 - 📋 Playlist management
 - ❤️ Favorites support with per-song heart toggle in the library
+- 🕘 Recently Played section (last 4 songs) for quick access
 - 🏷️ Dynamic browser tab title (`dPlaylist` when idle, `♪ Song — Artist` while playing)
 - 🎨 Modern, responsive UI with smooth interactions
 - ⌨️ Keyboard shortcuts support
@@ -81,7 +82,8 @@ If you need full control over the build configuration, you can eject. This will 
 4. Skip to previous/next tracks
 5. Drag the progress bar to seek to a specific time
 6. Click the heart icon in the library to add/remove favorites (saved automatically)
-7. Watch the browser tab title update to show the currently playing song
+7. Use the Recently Played section to jump back to your last 4 played songs
+8. Watch the browser tab title update to show the currently playing song
 
 ## Technologies Used
 
