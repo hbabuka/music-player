@@ -61,7 +61,7 @@
 
 .recently-played-list {
   display: flex;
-  justify-content: space-between;
+  gap: $spacing-2;
   overflow-x: auto;
 }
 
