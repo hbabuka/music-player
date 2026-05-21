@@ -102,12 +102,18 @@
       opacity 0.25s ease,
       transform 0.25s ease;
   }
+  img.song-cover {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
   &:hover {
     cursor: pointer;
     background-color: var(--color-background-elevation-2);
     .library-song-status svg {
       opacity: 1;
       transform: scale(1);
+    }
+    img.song-cover {
+      transform: scale(1.05);
     }
   }
 }
